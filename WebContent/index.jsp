@@ -7,7 +7,8 @@
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 	 <title>N3C Login/Registration</title>
-	 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	 <link rel="stylesheet" id='font-awesome' href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,22 +17,29 @@
        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
      <![endif]-->
 </head>
+
+<style type="text/css" media="all">
+	@import "resources/n3c_login_style.css";
+</style>
+
 <body>
-	<div class="container">
-    	<h1>N3C Login/Registration Harness</h1>
-    	<c:if test="${not empty not_logged_in}">
-    	   Our apologies, but you must successfully log in through NIH prior to registering.<br/>
-    	   <c:remove var="not_logged_in"/>
-    	</c:if>
-		<a href="dologin.jsp" class="btn btn-primary">Login</a>
-		<a href="dologin.jsp?attrs=1" class="btn btn-primary">Login and access to attrs.jsp page </a>
-		These are the NCATS UNA demo connections.  They's go away once we're federated with them.
-		<br/><br/>
-        <a href="register.jsp" class="btn btn-primary">N3C Registration</a>
-        This will be the normal entry point, routing to the UNA login and then back to the form.
-        <br/><br/>
-        <a href="fake_register.jsp" class="btn btn-primary">N3C Registration (faked login for now)</a>
-        This is just a mock up of a returned payload populating the form.
+	<div class="container center-box shadow-border">
+    	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Login/Registration Harness</h2>
+    	<div>
+    		<c:if test="${not empty not_logged_in}">
+    	  		Our apologies, but you must successfully log in through NIH prior to registering.<br/>
+    	   	<c:remove var="not_logged_in"/>
+    		</c:if>
+			<a href="dologin.jsp" class="btn btn-n3c">Login</a>
+			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">Login and access to attrs.jsp page </a>
+			These are the NCATS UNA demo connections. They's go away once we're federated with them.
+			<br/><br/>
+        	<a href="register.jsp" class="btn btn-n3c">N3C Registration</a>
+        	This will be the normal entry point, routing to the UNA login and then back to the form.
+        	<br/><br/>
+        	<a href="fake_register.jsp" class="btn btn-n3c">N3C Registration (faked login for now)</a>
+        	This is just a mock up of a returned payload populating the form.
+        </div>
 		
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />
