@@ -30,6 +30,30 @@
 	transform: scale(1.05);
 }
 
+.email_footer{
+	color: #817da8; /* Old browsers and firefox*/
+	background:none;
+	background: -webkit-linear-gradient(#a6a3c4, #494476); /* Chrome10-25,Safari5.1-6 */
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent;
+}
+
+.twitter_footer{
+	color: #829dab; /* Old browsers and firefox*/
+	background:none;
+	background: -webkit-linear-gradient(-45deg, #c0deed 1%,#0084b4 100%); /* Chrome10-25,Safari5.1-6 */
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent;
+}
+
+.github_footer{
+	color: #8f8d8d; /* Old browsers and firefox*/
+	background:none;
+	background: -webkit-linear-gradient(#eee, #333); /* Chrome10-25,Safari5.1-6 */
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent;
+}
+
 /* -------------- Buttons ---------------------  */
 .btn-n3c{
   border: none;

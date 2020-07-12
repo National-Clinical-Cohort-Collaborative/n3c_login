@@ -45,13 +45,13 @@
 	<div class="container pl-0 pr-0 foot-logos">
 		<div class="row justify-content-center pb-3">
 			<a href="mailto:cd2h@ohsu.edu">
-				<i class="fas fa-envelope-square fa-2x pr-2" aria-hidden="true" style="background: -webkit-linear-gradient(#642c6c, #494476); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+				<i class="fas fa-envelope-square fa-2x pr-2 email_footer" aria-hidden="true"></i>
 			</a>
 			<a href="https://twitter.com/data2health?lang=en">
-				<i class="fab fa-twitter-square fa-2x pr-1" style="background: -webkit-linear-gradient(#c0deed, #0084b4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+				<i class="fab fa-twitter-square fa-2x pr-1 twitter_footer" ></i>
 			</a>
 			<a href="https://github.com/data2health">
-				<i class="fab fa-github-square fa-2x pl-1" style="background: -webkit-linear-gradient(#eee, #333); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+				<i class="fab fa-github-square fa-2x pl-1 github_footer"></i>
 	  		</a>
 		</div>
 	</div>
