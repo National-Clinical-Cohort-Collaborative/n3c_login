@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,10 @@
 <body>
 	<div class="container">
     	<h1>N3C Login/Registration Harness</h1>
+    	<c:if test="${not empty not_logged_in}">
+    	   Our apologies, but you must successfully log in through NIH prior to registering.<br/>
+    	   <c:remove var="not_logged_in"/>
+    	</c:if>
 		<a href="dologin.jsp" class="btn btn-primary">Login</a>
 		<a href="dologin.jsp?attrs=1" class="btn btn-primary">Login and access to attrs.jsp page </a>
 		These are the NCATS UNA demo connections.  They's go away once we're federated with them.

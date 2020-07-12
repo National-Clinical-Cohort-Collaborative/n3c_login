@@ -46,6 +46,11 @@
         	<artifactId>postgresql</artifactId>
         	<version>42.2.14.jre7</version>
         </dependency>
+        <dependency>
+        	<groupId>N3CLoginTagLib</groupId>
+        	<artifactId>N3CLoginTagLib</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>

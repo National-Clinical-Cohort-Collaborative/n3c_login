@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<<c:if test="${empty user_email}">
+    <c:set scope="session" var="not_logged_in" value="t"/>
+    <c:redirect url="index.jsp"/>
+</c:if>
 <html>
 <head>
 	 <meta charset="utf-8">

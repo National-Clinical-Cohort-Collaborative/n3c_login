@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
 
-    <sql:update dataSource="jdbc/registration">
-        insert into n3c_admin.registration(email,official_first_name,official_last_name,first_name,last_name,institution,created) values(?,?,?,?,?,?,now())
-        <sql:param>${user_email}</sql:param>
-        <sql:param>${param.official_first_name}</sql:param>
-        <sql:param>${param.official_last_name}</sql:param>
-        <sql:param>${param.first_name}</sql:param>
-        <sql:param>${param.last_name}</sql:param>
-        <sql:param>${param.institution}</sql:param>
-    </sql:update>
+    <n3c:registration email="${user_email}">
+        <n3c:registrationOfficialFirstName officialFirstName="${param.official_first_name}"/>
+        <n3c:registrationOfficialLastName officialLastName="${param.official_last_name}"/>
+        <n3c:registrationFirstName firstName="${param.first_name}"/>
+        <n3c:registrationLastName lastName="${param.last_name}"/>
+        <n3c:registrationInstitution  institution="${param.institution}"/>
+    </n3c:registration>
 
     <c:redirect url="profile.jsp"/>

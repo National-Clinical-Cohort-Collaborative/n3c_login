@@ -20,6 +20,7 @@ WebContent/footer.jsp -text
 WebContent/index.jsp -text
 WebContent/logout.jsp -text
 WebContent/metadata.jsp -text
+WebContent/profile.jsp -text
 WebContent/register.jsp -text
 WebContent/sls.jsp -text
 WebContent/submit_registration.jsp -text
