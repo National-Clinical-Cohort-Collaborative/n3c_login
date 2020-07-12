@@ -1,7 +1,5 @@
 <div class="footer">	
-	<div class="container-fluid pt-2">
-		<a href="logout.jsp" class="btn btn-primary">Logout</a><hr/>
-	</div>
+	<hr/>
 	<div class="d-flex justify-content-center flex-row flex-wrap">
 		<ul id="menu-footer-menu" class="foot nav justify-content-center">
 			<li itemscope="itemscope"
@@ -41,8 +39,14 @@
 			the official views of the National Institutes of Health.</p>
 		</div>
 	</div>
+	<div class="container-fluid pt-2" style="text-align:right;">
+		<a href="logout.jsp">Logout</a>
+	</div>
 	<div class="container pl-0 pr-0 foot-logos">
 		<div class="row justify-content-center pb-3">
+			<a href="mailto:cd2h@ohsu.edu">
+				<i class="fas fa-envelope-square fa-2x pr-2" aria-hidden="true" style="background: -webkit-linear-gradient(#642c6c, #494476); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+			</a>
 			<a href="https://twitter.com/data2health?lang=en">
 				<i class="fab fa-twitter-square fa-2x pr-1" style="background: -webkit-linear-gradient(#c0deed, #0084b4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
 			</a>
