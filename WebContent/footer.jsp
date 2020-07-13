@@ -40,7 +40,9 @@
 		</div>
 	</div>
 	<div class="container-fluid pt-2" style="text-align:right;">
-		<a href="logout.jsp">Logout</a>
+		<a href="index.jsp">Home</a>
+        <a href="profile.jsp">Profile</a>
+        <a href="logout.jsp">Logout</a>
 	</div>
 	<div class="container pl-0 pr-0 foot-logos">
 		<div class="row justify-content-center pb-3">
