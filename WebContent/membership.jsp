@@ -29,13 +29,19 @@
 </style>
 
 <body>
+
+	<jsp:include page="navbar.jsp" flush="true" />
+	
 	<div class="container center-box shadow-border">
     	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration</h2>
     	<n3c:registration email="${user_email}">
     	<form method='POST' action='submit_membership.jsp'>
             <n3c:foreachWorkstream var="x">
                 <n3c:workstream>
-                    <input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}"><label for="${n3c:workstreamLabelValue()}"><n3c:workstreamFullName/> - <n3c:workstreamDescription/></label><br>
+                	<div class="form-check mb-4">
+   						<input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input">
+    					<label class="form-check-label" for="${n3c:workstreamLabelValue()}"><strong class="accent-text" style="font-size:18px;"><n3c:workstreamFullName/> </strong> - <n3c:workstreamDescription/></label>
+  					</div>
                 </n3c:workstream>
             </n3c:foreachWorkstream>
              

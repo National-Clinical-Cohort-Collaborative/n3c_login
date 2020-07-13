@@ -36,57 +36,90 @@
 </style>
 
 <body>
+
+	<jsp:include page="navbar.jsp" flush="true" />
+	
 	<div class="container center-box shadow-border">
 		<h2 class="header-text">
 			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration
 		</h2>
 
 		<n3c:registration email="${user_email}">
-			<h1>N3C Profile for: <n3c:registrationEmail /></h1>
-            Official First Name: <n3c:registrationOfficialFirstName /><br />
-            Official Last Name: <n3c:registrationOfficialLastName /><br />
-            First Name: <n3c:registrationFirstName /><br />
-            Last Name: <n3c:registrationLastName /><br />
-            Institution: <n3c:registrationInstitution /><br />
-            ORCiD ID: <n3c:registrationOrcidId /><br />
-            GSuite Email: <n3c:registrationGsuiteEmail /><br />
-            Slack ID: <n3c:registrationSlackId /><br />
-            GitHub ID: <n3c:registrationGithubId /><br />
-            Twitter ID: <n3c:registrationTwitterId /><br />
-            Expertise: <n3c:registrationExpertise /><br />
-            Therapeutic Area: <n3c:registrationTherapeuticArea /><br />
-            Assistant's Email: <n3c:registrationAssistantEmail /><br />
-            Created: <n3c:registrationCreated /><br />
-            Updated: <n3c:registrationUpdated /><br />
+			<div class="mb-3" style="text-align:center;">
+				<h3>N3C Profile for: <n3c:registrationEmail /></h3>
+				<small>Created: <n3c:registrationCreated /> &emsp; Updated: <n3c:registrationUpdated /></small>
+			</div>
+			<div class="container">
+				<div class="row mb-4">
+					<div class="col-md-6">
+						<strong>Official First Name:</strong> <n3c:registrationOfficialFirstName /><br>
+						<strong>Official Last Name:</strong> <n3c:registrationOfficialLastName /><br>
+						<strong>First Name:</strong> <n3c:registrationFirstName /><br>
+						<strong>Last Name:</strong> <n3c:registrationLastName />
+					</div>
+					<div class="col-md-6">
+						<strong>Institution:</strong> <n3c:registrationInstitution /><br>
+						<strong>ORCiD ID:</strong> <n3c:registrationOrcidId /><br>
+						<strong>Expertise:</strong> <n3c:registrationExpertise /><br>
+						<strong>Therapeutic Area:</strong> <n3c:registrationTherapeuticArea />
+						
+					</div>
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-6">
+						<strong>GSuite Email:</strong> <n3c:registrationGsuiteEmail /><br>
+						<strong>Assistant's Email:</strong> <n3c:registrationAssistantEmail />
+					</div>
+					<div class="col-md-6">
+						<strong>Slack ID:</strong> <n3c:registrationSlackId /><br>
+						<strong>GitHub ID:</strong> <n3c:registrationGithubId /><br>
+						<strong>Twitter ID:</strong> <n3c:registrationTwitterId />
+					</div>
+				</div>
+			</div>
 
-			<br />
-			<ul>
-				<li><a href="register.jsp">Edit This Profile</a></li>
-				<c:if test="${not n3c:enclaveExists(user_email)}"><li><a href="enclave.jsp">Request Access to the Enclave</a></li></c:if>
-				<c:if test="${not n3c:registrationHasMembership(user_email)}"><li><a href="membership.jsp">Join N3C Workstreams</a></li></c:if>
-			</ul>
-
+			<div class="container" style="text-align:center;">
+				<div class="row mb-4 justify-content-center">
+					<div class="col-md-4">
+						<a href="register.jsp">Edit This Profile</a>
+					</div>
+				<c:if test="${not n3c:enclaveExists(user_email)}">
+					<div class="col-md-4">
+						<a href="enclave.jsp">Request Access to the Enclave</a>
+					</div>
+				</c:if>
+				<c:if test="${not n3c:registrationHasMembership(user_email)}">
+					<div class="col-md-4">
+						<a href="membership.jsp">Join N3C Workstreams</a>
+					</div>
+				</c:if>
+				</div>
+			</div>
+		
 			<c:if test="${n3c:enclaveExists(user_email)}">
-				<h2>Enclave Access</h2>
-				<n3c:enclave>
-					<ul>
-						<li>SFTP: <n3c:enclaveSftp />
-						<li>Access Level: <n3c:enclaveLevel />
-						<li>Requested: <n3c:enclaveRequested />
-						<li>Approved: <n3c:enclaveApproved />
-					</ul>
-				</n3c:enclave>
+				<div class="mb-3">
+					<h4 class="accent-text">Enclave Access</h4>
+					<n3c:enclave>
+						SFTP: <n3c:enclaveSftp /><br>
+						Access Level: <n3c:enclaveLevel /><br>
+						Requested: <n3c:enclaveRequested /><br>
+						Approved: <n3c:enclaveApproved />
+					</n3c:enclave>
+				</div>
 			</c:if>
+			
 			<c:if test="${n3c:registrationHasMembership(user_email)}">
-				<h2>Workstream Memberships</h2>
-				<n3c:foreachMembership var="x">
-					<n3c:membership>
-						<ul>
-							<li>Workstream: <n3c:membershipLabel />
-							<li>Joined: <n3c:membershipJoined />
-						</ul>
-					</n3c:membership>
-				</n3c:foreachMembership>
+				<h4 class="accent-text">Workstream Memberships</h4>
+				<div class="row">
+					<n3c:foreachMembership var="x">
+						<n3c:membership>
+							<div class="col-md-6 mb-3">
+								Workstream: <n3c:membershipLabel /><br>
+								<small>Joined: <n3c:membershipJoined /></small>
+							</div>
+						</n3c:membership>
+					</n3c:foreachMembership>
+				</div>
 			</c:if>
 		</n3c:registration>
 	</div>

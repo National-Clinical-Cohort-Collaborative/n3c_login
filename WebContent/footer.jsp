@@ -34,15 +34,10 @@
 	</div>
 	<div class="container pl-0 pr-0 small-space">
 		<div class="row justify-content-center pb-1 ml-5 mr-5">
-			<p class="text-center font-weight-lighter pr-0 pb-0" style="font-size:10pt;">This work is supported by the National Institutes of Health's National Center for Advancing Translational Sciences,
+			<p class="text-center font-weight-lighter pr-0 pb-0 mb-1" style="font-size:10pt;">This work is supported by the National Institutes of Health's National Center for Advancing Translational Sciences,
 			Grant Number U24TR002306. This work is solely the responsibility of the creators and does not necessarily represent
 			the official views of the National Institutes of Health.</p>
 		</div>
-	</div>
-	<div class="container-fluid pt-2" style="text-align:right;">
-		<a href="index.jsp">Home</a>
-        <a href="profile.jsp">Profile</a>
-        <a href="logout.jsp">Logout</a>
 	</div>
 	<div class="container pl-0 pr-0 foot-logos">
 		<div class="row justify-content-center pb-3">
