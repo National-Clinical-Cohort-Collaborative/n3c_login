@@ -27,6 +27,7 @@ WebContent/navbar.jsp -text
 WebContent/profile.jsp -text
 WebContent/register.jsp -text
 WebContent/resources/n3c_login_style.css -text
+WebContent/session.jsp -text
 WebContent/sls.jsp -text
 WebContent/submit_enclave.jsp -text
 WebContent/submit_membership.jsp -text

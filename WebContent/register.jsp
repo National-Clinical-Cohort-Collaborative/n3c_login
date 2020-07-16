@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
 <!DOCTYPE html>
+<c:set var="user_email" value="${nameId}"/>
 <c:if test="${empty user_email}">
     <c:set scope="session" var="not_logged_in" value="t"/>
     <c:redirect url="index.jsp"/>

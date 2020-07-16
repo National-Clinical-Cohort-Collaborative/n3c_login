@@ -33,17 +33,13 @@
     	  		Our apologies, but you must successfully log in through NIH prior to registering.<br/>
     	   	<c:remove var="not_logged_in"/>
     		</c:if>
-			<a href="dologin.jsp" class="btn btn-n3c">Login</a>
-			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">Login and access to attrs.jsp page </a>
-			These are the NCATS UNA demo connections. They's go away once we're federated with them.
-			<br/><br/>
-        	<a href="register.jsp" class="btn btn-n3c">N3C Registration</a>
+        	<a href="dologin.jsp" class="btn btn-n3c">N3C Registration</a>
         	This will be the normal entry point, routing to the UNA login and then back to the form.
         	<br/><br/>
-        	<a href="fake_register.jsp" class="btn btn-n3c">N3C Registration (faked login for now)</a>
-        	This is just a mock up of a returned payload populating the form.
+			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">Login and access to attrs.jsp page </a>
+			This is the NCATS UNA demo connection. It's here for the moment to support login debugging.
+			<br/><br/>
         </div>
-		
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />
 </body>

@@ -34,6 +34,7 @@
 		if (errors.isEmpty()) {
 			out.println("<p>Sucessfully logged out</p>");
 			out.println("<a href=\"dologin.jsp\" class=\"btn btn-primary\">Login</a>");
+			out.println("<a href=\"index.jsp\" class=\"btn btn-primary\">Home</a>");
 		} else {
 			out.println("<p>");
 			for(String error : errors) {

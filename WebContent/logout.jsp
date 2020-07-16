@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:remove var="user_email"/>
+<c:remove var="nameId"/>
 <c:redirect url="index.jsp"/>
