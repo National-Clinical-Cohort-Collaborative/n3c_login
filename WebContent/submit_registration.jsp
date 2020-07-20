@@ -3,10 +3,8 @@
 <%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
 
 <n3c:registration email="${user_email}">
-	<n3c:registrationOfficialFirstName
-		officialFirstName="${param.official_first_name}" />
-	<n3c:registrationOfficialLastName
-		officialLastName="${param.official_last_name}" />
+	<n3c:registrationOfficialFirstName officialFirstName="${param.official_first_name}" />
+	<n3c:registrationOfficialLastName officialLastName="${param.official_last_name}" />
 	<n3c:registrationFirstName firstName="${param.first_name}" />
 	<n3c:registrationLastName lastName="${param.last_name}" />
 	<n3c:registrationInstitution institution="${param.institution}" />
@@ -18,35 +16,64 @@
 	<n3c:registrationExpertise expertise="${param.expertise}" />
 	<n3c:registrationTherapeuticArea therapeuticArea="${param.therapeutic}" />
 	<n3c:registrationAssistantEmail assistantEmail="${param.assistant}" />
-	<n3c:registrationEnclave enclave="${not empty param.enclave}"/>
-    <n3c:registrationWorkstreams workstreams="${not empty param.workstreams}"/>
+	<n3c:registrationEnclave enclave="${not empty param.enclave}" />
+	<n3c:registrationWorkstreams workstreams="${not empty param.workstreams}" />
 	<n3c:registrationUpdatedToNow />
 </n3c:registration>
 
-	<c:if test="${not empty param.analytics}">
+<c:choose>
+	<c:when	test='${n3c:membershipExists(user_email,"analytics") and empty param.analytics}'>
+		<n3c:deleteMembership email="${user_email}" label="analytics" />
+	</c:when>
+	<c:when	test='${not n3c:membershipExists(user_email,"analytics") and not empty param.analytics}'>
 		<n3c:membership email="${user_email}" label="analytics">
 			<n3c:membershipJoinedToNow />
 		</n3c:membership>
-	</c:if>
-	<c:if test="${not empty param.governance}">
+	</c:when>
+</c:choose>
+
+<c:choose>
+	<c:when	test='${n3c:membershipExists(user_email,"governance") and empty param.governance}'>
+		<n3c:deleteMembership email="${user_email}" label="governance" />
+	</c:when>
+	<c:when	test='${not n3c:membershipExists(user_email,"governance") and not empty param.governance}'>
 		<n3c:membership email="${user_email}" label="governance">
 			<n3c:membershipJoinedToNow />
 		</n3c:membership>
-	</c:if>
-	<c:if test="${not empty param.phenotype}">
+	</c:when>
+</c:choose>
+
+<c:choose>
+	<c:when	test='${n3c:membershipExists(user_email,"phenotype") and empty param.phenotype}'>
+		<n3c:deleteMembership email="${user_email}" label="phenotype" />
+	</c:when>
+	<c:when	test='${not n3c:membershipExists(user_email,"phenotype") and not empty param.phenotype}'>
 		<n3c:membership email="${user_email}" label="phenotype">
 			<n3c:membershipJoinedToNow />
 		</n3c:membership>
-	</c:if>
-	<c:if test="${not empty param.harmonization}">
+	</c:when>
+</c:choose>
+
+<c:choose>
+	<c:when	test='${n3c:membershipExists(user_email,"harmonization") and empty param.harmonization}'>
+		<n3c:deleteMembership email="${user_email}" label="harmonization" />
+	</c:when>
+	<c:when	test='${not n3c:membershipExists(user_email,"harmonization") and not empty param.harmonization}'>
 		<n3c:membership email="${user_email}" label="harmonization">
 			<n3c:membershipJoinedToNow />
 		</n3c:membership>
-	</c:if>
-	<c:if test="${not empty param.synthetic}">
+	</c:when>
+</c:choose>
+
+<c:choose>
+	<c:when	test='${n3c:membershipExists(user_email,"synthetic") and empty param.synthetic}'>
+		<n3c:deleteMembership email="${user_email}" label="synthetic" />
+	</c:when>
+	<c:when	test='${not n3c:membershipExists(user_email,"synthetic") and not empty param.synthetic}'>
 		<n3c:membership email="${user_email}" label="synthetic">
 			<n3c:membershipJoinedToNow />
 		</n3c:membership>
-	</c:if>
+	</c:when>
+</c:choose>
 
 <c:redirect url="profile.jsp" />

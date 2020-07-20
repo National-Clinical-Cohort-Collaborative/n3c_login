@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
 <!DOCTYPE html>
 <c:if test="${empty user_email}">
@@ -69,7 +70,7 @@
                     <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
                 </div>
             </div>
-           
+
            <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:18px;">Access to the N3C Enclave</label><br>
             
             <div id="enclave-div" style="display:<c:choose><c:when test="${n3c:registrationEnclaveValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
@@ -79,6 +80,18 @@
                 <label for="orcid" class="col-sm-2 col-form-label">ORCiD ID</label>
                 <div class="col-sm-10">
                     <input name="orcid" type="text" class="form-control" id="orcid" value="${n3c:registrationOrcidIdValue()}">
+	                <sql:query var="orcids" dataSource="jdbc/N3CLoginTagLib">
+	                    select distinct person.orcid_id,given_names,family_name,organization
+	                    from orcid.person left join orcid.employment on person.id=employment.id
+	                    where end_year is null and family_name = ? and given_names = ?;
+	                    <sql:param><n3c:registrationOfficialLastName/></sql:param>
+	                    <sql:param><n3c:registrationOfficialFirstName/></sql:param>
+	                </sql:query>
+	                <c:forEach items="${orcids.rows}" var="row" varStatus="rowCounter">
+	                	<c:if test="${rowCounter.index == 0}">Possible matches:<br/></c:if>
+	                    <input type="radio" id="orcid_choice" name="orcid_choice" value="${row.orcid_id}" onclick="orcidFunction()" >
+	                    <label for="orcid_choice">${row.orcid_id} - ${row.family_name}, ${row.given_names} (${row.organization})</label><br>
+	                </c:forEach>
                 </div>
             </div>
             <div class="form-group row">
@@ -135,7 +148,8 @@
 		            <n3c:foreachWorkstream var="x">
 		                <n3c:workstream>
 		                    <div class="form-check mb-4">
-		                        <input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input">
+		                    	<c:set var='workstream' value="${n3c:workstreamLabelValue()}"/>
+		                        <input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input" <c:if test="${n3c:membershipExists(user_email,workstream)}">checked</c:if>>
 		                        <label class="form-check-label" for="${n3c:workstreamLabelValue()}"><strong class="accent-text" style="font-size:18px;"><n3c:workstreamFullName/> </strong> - <n3c:workstreamDescription/></label>
 		                    </div>
 		                </n3c:workstream>
@@ -169,6 +183,10 @@
             } else {
                 x.style.display = "none";
             }
+        }
+		
+		function orcidFunction() {
+            document.getElementById("orcid").value = document.getElementById("orcid_choice").value;
         }
 		
 		function validateForm() {
