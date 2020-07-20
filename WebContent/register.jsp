@@ -34,7 +34,9 @@
 	
 	<div class="container center-box shadow-border">
     	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration</h2>
+    	
     	<n3c:registration email="${user_email}">
+    	
     	<form name="registration" method='POST' action='submit_registration.jsp' onsubmit="return validateForm()" >
   			<div class="form-group row">
     			<label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -43,60 +45,61 @@
     			</div>
   			</div>
   			<div class="form-group row">
-    			<label class="required" for="first_name" class="col-sm-2 col-form-label">First Name</label>
+    			<label for="first_name" class="required col-sm-2 col-form-label">First Name</label>
                 <style>.required:after { content:" *"; color: red; } </style>
     			<div class="col-sm-10">
       				<input name="first_name" type="text" class="form-control" id="first_name" value="${n3c:registrationFirstNameValue()}">
     			</div>
   			</div>
   			<div class="form-group row">
-    			<label class="required" for="last_name" class="col-sm-2 col-form-label">Last Name</label>
+    			<label for="last_name" class="required col-sm-2 col-form-label">Last Name</label>
     			<div class="col-sm-10">
       				<input name="last_name" type="text" class="form-control" id="last_name" value="${n3c:registrationLastNameValue()}">
     			</div>
   			</div>
   			<div class="form-group row">
-    			<label class="required" for="institution" class="col-sm-2 col-form-label">Institution</label>
+    			<label for="institution" class="required col-sm-2 col-form-label">Institution</label>
     			<div class="col-sm-10">
       				<input name="institution" type="text" class="form-control" id="institution" value="${n3c:registrationInstitutionValue()}">
     			</div>
   			</div>
             <div class="form-group row">
-                <label for="institution" class="col-sm-2 col-form-label">Assistant's Email</label>
+                <label for="assistant" class="col-sm-2 col-form-label">Assistant's Email</label>
                 <div class="col-sm-10">
                     <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
                 </div>
             </div>
-           <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for=""enclave"">Access to the N3C Enclave</label><br>
+           
+           <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:18px;">Access to the N3C Enclave</label><br>
             
             <div id="enclave-div" style="display:<c:choose><c:when test="${n3c:registrationEnclaveValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
                 <p>Your request for access to the Enclave will be submitted for approval. You will be notified via email shortly.
                 Please provide these additional details to enhance your ability to collaborate and be credited for contributions.</p>
             <div class="form-group row">
-                <label for="institution" class="col-sm-2 col-form-label">ORCiD ID</label>
+                <label for="orcid" class="col-sm-2 col-form-label">ORCiD ID</label>
                 <div class="col-sm-10">
                     <input name="orcid" type="text" class="form-control" id="orcid" value="${n3c:registrationOrcidIdValue()}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="institution" class="col-sm-2 col-form-label">Expertise</label>
+                <label for="expertise" class="col-sm-2 col-form-label">Expertise</label>
                 <div class="col-sm-10">
                     <input name="expertise" type="text" class="form-control" id="expertise" value="${n3c:registrationExpertiseValue()}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="institution" class="col-sm-2 col-form-label">Therapeutic Area (for clinicians)</label>
+                <label for="therapeutic" class="col-sm-2 col-form-label">Therapeutic Area (for clinicians)</label>
                 <div class="col-sm-10">
                     <input name="therapeutic" type="text" class="form-control" id="therapeutic" value="${n3c:registrationTherapeuticAreaValue()}">
                 </div>
             </div>
             </div>
 
-           <input type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for=""workstream"">Participate in N3C Workstreams</label><br>
+           <input type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:18px;">Participate in N3C Workstreams</label><br>
 
 				<div id="workstream-div" style="display: <c:choose><c:when test="${n3c:registrationWorkstreamsValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
 					<div class="form-group row">
-						<label for="institution" class="col-sm-2 col-form-label">GSuite
+						<label for="gsuite" class="col-sm-2 col-form-label">GSuite
 							(GMail) ID</label>
 						<div class="col-sm-10">
 							<input name="gsuite" type="text" class="form-control" id="gsuite"
@@ -104,7 +107,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="institution" class="col-sm-2 col-form-label">Slack
+						<label for="slack" class="col-sm-2 col-form-label">Slack
 							ID</label>
 						<div class="col-sm-10">
 							<input name="slack" type="text" class="form-control" id="slack"
@@ -112,7 +115,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="institution" class="col-sm-2 col-form-label">GitHub
+						<label for="github" class="col-sm-2 col-form-label">GitHub
 							ID</label>
 						<div class="col-sm-10">
 							<input name="github" type="text" class="form-control" id="github"
@@ -120,7 +123,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="institution" class="col-sm-2 col-form-label">Twitter
+						<label for="twitter" class="col-sm-2 col-form-label">Twitter
 							ID</label>
 						<div class="col-sm-10">
 							<input name="twitter" type="text" class="form-control"
