@@ -3,10 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
 <!DOCTYPE html>
+
 <c:if test="${empty user_email}">
 	<c:set scope="session" var="not_logged_in" value="t" />
 	<c:redirect url="index.jsp" />
 </c:if>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -78,37 +80,12 @@
 				</div>
 			</div>
 
-			<div class="container" style="text-align:center;">
-				<div class="row mb-4 justify-content-center">
-					<div class="col-md-4">
-						<a href="register.jsp">Edit This Profile</a>
-					</div>
-				<c:if test="${not n3c:enclaveExists(user_email)}">
-					<div class="col-md-4">
-						<a href="enclave.jsp">Request Access to the Enclave</a>
-					</div>
-				</c:if>
-				<c:if test="${not n3c:registrationHasMembership(user_email)}">
-					<div class="col-md-4">
-						<a href="membership.jsp">Join N3C Workstreams</a>
-					</div>
-				</c:if>
-				</div>
-			</div>
-		
-			<c:if test="${n3c:enclaveExists(user_email)}">
-				<div class="mb-3">
-					<h4 class="accent-text">Enclave Access</h4>
-					<n3c:enclave>
-						SFTP: <n3c:enclaveSftp /><br>
-						Access Level: <n3c:enclaveLevel /><br>
-						Requested: <n3c:enclaveRequested /><br>
-						Approved: <n3c:enclaveApproved />
-					</n3c:enclave>
-				</div>
-			</c:if>
-			
-			<c:if test="${n3c:registrationHasMembership(user_email)}">
+           <c:if test="${n3c:registrationEnclaveValue()}">
+                 <p>Access to the N3C Enclave has been requested.</p>
+            </c:if>
+            
+			<c:if test="${n3c:registrationWorkstreamsValue()}">
+			     <p>Membership in the N3C workstreams has been requested.</p>
 				<h4 class="accent-text">Workstream Memberships</h4>
 				<div class="row">
 					<n3c:foreachMembership var="x">
@@ -121,7 +98,16 @@
 					</n3c:foreachMembership>
 				</div>
 			</c:if>
-		</n3c:registration>
+ 
+            <div class="container" style="text-align:center;">
+                <div class="row mb-4 justify-content-center">
+                    <div class="col-md-4">
+                        <a href="register.jsp">Edit This Profile</a>
+                    </div>
+                </div>
+            </div>
+        
+ 		</n3c:registration>
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />
 </body>
