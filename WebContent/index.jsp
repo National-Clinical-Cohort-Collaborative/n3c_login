@@ -29,23 +29,27 @@
 	<div class="container center-box shadow-border">
     	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Login/Registration Test Harness</h2>
     	<div>
- Welcome!  Thank you for your interest in the CD2H program and N3C initiative.  
+			<p>Welcome!  Thank you for your interest in the CD2H program and N3C initiative.</p>
  
-Please register your profile information on the following page.  After the profile page, please follow the onboarding instructions to request access to the N3C Team Drive, Workstream and/or Subgroup specific mailing lists, N3C calendar, Slack, and GitHub.  
+			<p>Please register your profile information on the following page.  After the profile page, please follow the onboarding instructions
+			to request access to the N3C Team Drive, Workstream and/or Subgroup specific mailing lists, N3C calendar, Slack, and GitHub.</p>
  
-Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends.  Your patience and understanding is appreciated. 
+			<p><i>Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends.
+			Your patience and understanding is appreciated.</i></p>
  
-You will also receive a copy of your responses and you are encouraged to update your responses as needed.  Contact data2health@gmail.com with any questions. 
+			<p>You will also receive a copy of your responses and you are encouraged to update your responses as needed.
+			Contact <a href="mailto:data2health@gmail.com">data2health@gmail.com</a> with any questions.</p>
  
-Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.     		<c:if test="${not empty not_logged_in}">
+			<p><i>Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.</i></p>
+			
+			<c:if test="${not empty not_logged_in}">
     	  		Our apologies, but you must successfully log in through NIH prior to registering.<br/>
     	   	<c:remove var="not_logged_in"/>
     		</c:if>
-        	<a href="dologin.jsp" class="btn btn-n3c">N3C Registration</a>
-        	This will be the normal entry point, routing to the UNA login and then back to the form.
+        	<a href="dologin.jsp" class="btn btn-n3c">Click here to Register with N3C</a>
         	<br/><br/>
-			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">Login and access to attrs.jsp page </a>
-			This is the NCATS UNA demo connection. It's here for the moment to support login debugging.
+			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">NCATS UNA demo login</a>
+			This is here for the moment to support login debugging.
 			<br/><br/>
         </div>
 	</div>

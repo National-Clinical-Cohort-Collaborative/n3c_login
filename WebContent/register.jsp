@@ -68,6 +68,7 @@
                 <label for="assistant" class="col-sm-2 col-form-label">Assistant's Email</label>
                 <div class="col-sm-10">
                     <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
+                    If you have an assistant that you would like copied in correspondence about meeting schedules, please provide their contact email.
                 </div>
             </div>
 
@@ -92,6 +93,8 @@
 	                    <input type="radio" id="orcid_choice" name="orcid_choice" value="${row.orcid_id}" onclick="orcidFunction()" >
 	                    <label for="orcid_choice">${row.orcid_id} - ${row.family_name}, ${row.given_names} (${row.organization})</label><br>
 	                </c:forEach>
+	                We use ORCiD Person iDs to credit contributions and to disambiguate people. An ORCiD is required to be an author on publications with N3C
+	                and is required to access the N3C secure data enclave. Getting an ORCiD is free at <a href="http://orcid.org">orcid.org</a>. If you do not have an ORCID <i>and do not need one</i> you can leave this blank.
                 </div>
             </div>
             <div class="form-group row">
@@ -112,39 +115,36 @@
 
 				<div id="workstream-div" style="display: <c:choose><c:when test="${n3c:registrationWorkstreamsValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
 					<div class="form-group row">
-						<label for="gsuite" class="col-sm-2 col-form-label">GSuite
-							(GMail) ID</label>
+						<label for="gsuite" class="col-sm-2 col-form-label">GSuite (GMail) ID</label>
 						<div class="col-sm-10">
-							<input name="gsuite" type="text" class="form-control" id="gsuite"
-								value="${n3c:registrationGsuiteEmailValue()}">
+							<input name="gsuite" type="text" class="form-control" id="gsuite" value="${n3c:registrationGsuiteEmailValue()}">
+							We use Google Drive, Docs, and Sheets to share information. PLEASE ENTER THE ADDRESS YOU WILL USE TO ACCESS GOOGLE DRIVE.
+							If you do NOT have any address with which you currently can use Google Drive, Docs, or Sheets, NCATS is able to provide one for you.
+							If this is you, please contact <a href="mailto:mariam.deacy@nih.gov">mariam.deacy@nih.gov</a>.
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="slack" class="col-sm-2 col-form-label">Slack
-							ID</label>
+						<label for="slack" class="col-sm-2 col-form-label">Slack ID</label>
 						<div class="col-sm-10">
-							<input name="slack" type="text" class="form-control" id="slack"
-								value="${n3c:registrationSlackIdValue()}">
+							<input name="slack" type="text" class="form-control" id="slack"	value="${n3c:registrationSlackIdValue()}">
+							We use Slack to communicate, and invite all who onboard to join our Slack org.
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="github" class="col-sm-2 col-form-label">GitHub
-							ID</label>
+						<label for="github" class="col-sm-2 col-form-label">GitHub ID</label>
 						<div class="col-sm-10">
-							<input name="github" type="text" class="form-control" id="github"
-								value="${n3c:registrationGithubIdValue()}">
+							<input name="github" type="text" class="form-control" id="github" value="${n3c:registrationGithubIdValue()}">
+							We use Github for issue tracking and management. You can get one free from <a href="http://github.com">GitHub.com</a> if you do not already have one.
+							You will be able to view issues without a handle, however, you will not be able to log issues without a handle.
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="twitter" class="col-sm-2 col-form-label">Twitter
-							ID</label>
+						<label for="twitter" class="col-sm-2 col-form-label">Twitter ID</label>
 						<div class="col-sm-10">
-							<input name="twitter" type="text" class="form-control"
-								id="twitter" value="${n3c:registrationTwitterIdValue()}">
+							<input name="twitter" type="text" class="form-control"	id="twitter" value="${n3c:registrationTwitterIdValue()}">
 						</div>
 					</div>
-					<p>Please select the workstreams in which you would like to
-						participate:</p>
+					<p>Please select the workstreams in which you would like to	participate:</p>
 		            <n3c:foreachWorkstream var="x">
 		                <n3c:workstream>
 		                    <div class="form-check mb-4">
