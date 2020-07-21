@@ -29,7 +29,15 @@
 	<div class="container center-box shadow-border">
     	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Login/Registration Test Harness</h2>
     	<div>
-    		<c:if test="${not empty not_logged_in}">
+ Welcome!  Thank you for your interest in the CD2H program and N3C initiative.  
+ 
+Please register your profile information on the following page.  After the profile page, please follow the onboarding instructions to request access to the N3C Team Drive, Workstream and/or Subgroup specific mailing lists, N3C calendar, Slack, and GitHub.  
+ 
+Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends.  Your patience and understanding is appreciated. 
+ 
+You will also receive a copy of your responses and you are encouraged to update your responses as needed.  Contact data2health@gmail.com with any questions. 
+ 
+Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.     		<c:if test="${not empty not_logged_in}">
     	  		Our apologies, but you must successfully log in through NIH prior to registering.<br/>
     	   	<c:remove var="not_logged_in"/>
     		</c:if>
