@@ -5,6 +5,7 @@
 <n3c:registration email="${user_email}">
 	<n3c:registrationOfficialFirstName officialFirstName="${param.official_first_name}" />
 	<n3c:registrationOfficialLastName officialLastName="${param.official_last_name}" />
+	<n3c:registrationOfficialFullName officialFullName="${param.official_full_name}" />
 	<n3c:registrationFirstName firstName="${param.first_name}" />
 	<n3c:registrationLastName lastName="${param.last_name}" />
 	<n3c:registrationInstitution institution="${param.institution}" />

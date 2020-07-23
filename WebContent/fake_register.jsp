@@ -11,6 +11,7 @@
     <n3c:registration email="david-eichmann@uiowa.edu">
         <n3c:registrationOfficialFirstName officialFirstName="David"/>
         <n3c:registrationOfficialLastName officialLastName="Eichmann"/>
+        <n3c:registrationOfficialFullName officialFullName="Eichmann, David"/>
         <n3c:registrationFirstName firstName="David"/>
         <n3c:registrationLastName lastName="Eichmann"/>
         <n3c:registrationInstitution  institution="University of Iowa"/>

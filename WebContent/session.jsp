@@ -11,9 +11,11 @@
     <c:set var="first_name">${attributes.get("given_name")[0]}</c:set>
     <c:set var="last_name">${attributes.get("family_name")[0]}</c:set>
     <c:set var="institution">${attributes.get("org")[0]}</c:set>
+    <c:set var="name">${attributes.get("name")[0]}</c:set>
     <n3c:registration email="${user_email}">
         <n3c:registrationOfficialFirstName officialFirstName="${first_name}"/>
         <n3c:registrationOfficialLastName officialLastName="${last_name}"/>
+        <n3c:registrationOfficialFullName officialFullName="${name}"/>
         <n3c:registrationFirstName firstName="${first_name}"/>
         <n3c:registrationLastName lastName="${last_name}"/>
         <n3c:registrationInstitution  institution="${institution}"/>

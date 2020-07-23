@@ -158,6 +158,7 @@
 
 				<input type="hidden" name="official_first_name" value="${n3c:registrationOfficialFirstNameValue()}">
                 <input type="hidden" name="official_last_name" value="${n3c:registrationOfficialLastNameValue()}">
+                <input type="hidden" name="official_full_name" value="${n3c:registrationOfficialFullNameValue()}">
             
             <div style="text-align:right;">
             	<button class="btn btn-n3c" type="submit" name="action" value="submit">Submit</button>

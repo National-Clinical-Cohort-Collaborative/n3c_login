@@ -56,6 +56,7 @@
 					<div class="col-md-6">
 						<strong>Official First Name:</strong> <n3c:registrationOfficialFirstName /><br>
 						<strong>Official Last Name:</strong> <n3c:registrationOfficialLastName /><br>
+						<strong>Official Full Name:</strong> <n3c:registrationOfficialFullName /><br>
 						<strong>First Name:</strong> <n3c:registrationFirstName /><br>
 						<strong>Last Name:</strong> <n3c:registrationLastName />
 					</div>
