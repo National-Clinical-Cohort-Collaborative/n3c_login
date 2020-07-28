@@ -6,6 +6,7 @@
 @import "<util:applicationRoot/>/resources/autocomplete.css";
 </style>
 <script src="<util:applicationRoot/>/resources/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<util:applicationRoot/>/resources/autocomplete.js"></script>
 
 <!--Make sure the form has the autocomplete function switched off:-->

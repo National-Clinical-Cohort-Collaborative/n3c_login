@@ -11,6 +11,7 @@
 .settings/org.eclipse.wst.validation.prefs -text
 WebContent/META-INF/MANIFEST.MF -text
 WebContent/WEB-INF/web.xml -text svneol=unset#application/xml
+WebContent/abms_data.jsp -text
 WebContent/acs.jsp -text
 WebContent/attrs.jsp -text
 WebContent/autocomplete_test.jsp -text
