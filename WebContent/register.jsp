@@ -44,6 +44,7 @@
     			<div class="col-sm-10">
       				<input name="email" type="text" readonly class="form-control-plaintext" id="email" value="${user_email}">
     			</div>
+    			<label for="" class="required col-sm-2 col-form-label"><i>required fields:</i> </label>
   			</div>
   			<div class="form-group row">
     			<label for="first_name" class="required col-sm-2 col-form-label">First Name</label>
@@ -64,13 +65,6 @@
       				<input name="institution" type="text" class="form-control" id="institution" value="${n3c:registrationInstitutionValue()}">
     			</div>
   			</div>
-            <div class="form-group row">
-                <label for="assistant" class="col-sm-2 col-form-label">Assistant's Email</label>
-                <div class="col-sm-10">
-                    <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
-                    If you have an assistant that you would like copied in correspondence about meeting schedules, please provide their contact email.
-                </div>
-            </div>
 
            <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:18px;">Access to the N3C Enclave</label><br>
             
@@ -78,7 +72,7 @@
                 <p>Your request for access to the Enclave will be submitted for approval. You will be notified via email shortly.
                 Please provide these additional details to enhance your ability to collaborate and be credited for contributions.</p>
             <div class="form-group row">
-                <label for="orcid" class="col-sm-2 col-form-label">ORCiD ID</label>
+                <label for="orcid" class=" required col-sm-2 col-form-label">ORCiD ID</label>
                 <div class="col-sm-10">
                     <input name="orcid" type="text" class="form-control" id="orcid" value="${n3c:registrationOrcidIdValue()}">
 	                <sql:query var="orcids" dataSource="jdbc/N3CLoginTagLib">
@@ -124,7 +118,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="slack" class="col-sm-2 col-form-label">Slack ID</label>
+						<label for="slack" class="col-sm-2 col-form-label">Slack Email</label>
 						<div class="col-sm-10">
 							<input name="slack" type="text" class="form-control" id="slack"	value="${n3c:registrationSlackIdValue()}">
 							We use Slack to communicate, and invite all who onboard to join our Slack org.
@@ -144,6 +138,13 @@
 							<input name="twitter" type="text" class="form-control"	id="twitter" value="${n3c:registrationTwitterIdValue()}">
 						</div>
 					</div>
+		            <div class="form-group row">
+		                <label for="assistant" class="col-sm-2 col-form-label">Assistant's Email</label>
+		                <div class="col-sm-10">
+		                    <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
+		                    If you have an assistant that you would like copied in correspondence about meeting schedules, please provide their contact email.
+		                </div>
+		            </div>
 					<p>Please select the workstreams in which you would like to	participate:</p>
 		            <n3c:foreachWorkstream var="x">
 		                <n3c:workstream>
@@ -204,6 +205,12 @@
               var institution = document.forms["registration"]["institution"].value;
               if (institution == "") {
                 alert("Institution is required");
+                return false;
+              }
+              var enclave = document.getElementById("enclave").checked;
+              var orcid = document.forms["registration"]["orcid"].value;
+              if (enclave == true && orcid == "") {
+                alert("An ORCiD ID is required for Enclave access");
                 return false;
               }
 		}
