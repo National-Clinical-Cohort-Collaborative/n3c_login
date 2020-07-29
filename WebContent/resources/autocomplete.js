@@ -2,17 +2,17 @@
 //.then(function(response){
 //    return response.json();
 //});
-var countries = [];
-$.getJSON("abms_data.jsp", function(json) {
-	countries = $.parseJSON(JSON.stringify(json));
-	alert(countries);
-});
+//var countries = [];
+//$.getJSON("abms_data.jsp", function(json) {
+//	countries = $.parseJSON(JSON.stringify(json));
+//	alert(countries);
+//});
 //d3.json("abms_data.jsp", function(error, data) {
 //    alert(data[0]);
 //    countries = data;
 //    countries = "Here";
 //});
-alert(countries);
+//alert(countries);
 
 //var countries = await fetch('abms_data.jsp')
 //.then(res => res.json())
@@ -42,12 +42,15 @@ function autocomplete(inp, arr) {
       /*for each item in the array...*/
       for (i = 0; i < arr.length; i++) {
         /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        if (arr[i].toUpperCase().includes(val.toUpperCase())) {
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
           /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
+          var offset = arr[i].toUpperCase().indexOf(val.toUpperCase());
+          var extent = val.length;
+          b.innerHTML = arr[i].substring(0,offset);
+          b.innerHTML += "<strong>" + arr[i].substr(offset, extent) + "</strong>";
+          b.innerHTML += arr[i].substr(offset+extent);
           /*insert a input field that will hold the current array item's value:*/
           b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
