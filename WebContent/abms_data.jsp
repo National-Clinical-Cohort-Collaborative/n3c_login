@@ -9,6 +9,13 @@ var countries = [
 </sql:query>
 <c:forEach items="${abms.rows}" var="row" varStatus="rowCounter">
 	<c:if test="${rowCounter.index > 0}">,</c:if>
-    "${row.board} : ${row.specialty} : ${row.subspecialty}"
+	<c:choose>
+	<c:when test="${not empty row.specialty}">
+	    "${row.board} : ${row.specialty}"
+	</c:when>
+	<c:otherwise>
+    	"${row.board} : <i>${row.subspecialty}</i>"
+	</c:otherwise>
+	</c:choose>
 </c:forEach>
 ];

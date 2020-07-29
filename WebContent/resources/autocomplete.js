@@ -50,9 +50,13 @@ function autocomplete(inp, arr) {
           var extent = val.length;
           b.innerHTML = arr[i].substring(0,offset);
           b.innerHTML += "<strong>" + arr[i].substr(offset, extent) + "</strong>";
-          b.innerHTML += arr[i].substr(offset+extent);
+          /* apparently JavaScript closes injected tags if you don't do it yourself... */
+          if (arr[i].includes("<i>"))
+        	  b.innerHTML += "<i>" + arr[i].substr(offset+extent);
+          else
+        	  b.innerHTML += arr[i].substr(offset+extent);
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.innerHTML += "<input type='hidden' value='" + arr[i].replace("<i>","").replace("</i>","") + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
               b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/

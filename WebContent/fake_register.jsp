@@ -15,6 +15,7 @@
         <n3c:registrationFirstName firstName="David"/>
         <n3c:registrationLastName lastName="Eichmann"/>
         <n3c:registrationInstitution  institution="University of Iowa"/>
+        <n3c:registrationOfficialInstitution  officialInstitution="University of Iowa"/>
         <n3c:registrationCreatedToNow/>
         <n3c:registrationUpdatedToNow/>
     </n3c:registration>

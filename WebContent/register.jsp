@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
+<%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <!DOCTYPE html>
 <c:if test="${empty user_email}">
     <c:set scope="session" var="not_logged_in" value="t"/>
@@ -27,6 +28,7 @@
 
 <style type="text/css" media="all">
 	@import "resources/n3c_login_style.css";
+@import "<util:applicationRoot/>/resources/autocomplete.css";
 </style>
 
 <body>
@@ -38,7 +40,7 @@
     	
     	<n3c:registration email="${user_email}">
     	
-    	<form name="registration" method='POST' action='submit_registration.jsp' onsubmit="return validateForm()" >
+    	<form name="registration" method='POST' action='submit_registration.jsp' autocomplete="off" onsubmit="return validateForm()" >
   			<div class="form-group row">
     			<label for="email" class="col-sm-2 col-form-label">Email</label>
     			<div class="col-sm-10">
@@ -160,6 +162,7 @@
 				<input type="hidden" name="official_first_name" value="${n3c:registrationOfficialFirstNameValue()}">
                 <input type="hidden" name="official_last_name" value="${n3c:registrationOfficialLastNameValue()}">
                 <input type="hidden" name="official_full_name" value="${n3c:registrationOfficialFullNameValue()}">
+                <input type="hidden" name="official_institution" value="${n3c:registrationOfficialInstitutionValue()}">
             
             <div style="text-align:right;">
             	<button class="btn btn-n3c" type="submit" name="action" value="submit">Submit</button>
@@ -168,6 +171,11 @@
         </n3c:registration>
 	</div>
     <jsp:include page="footer.jsp" flush="true" />
+<script src="<util:applicationRoot/>/abms_data.jsp"></script>
+<script src="<util:applicationRoot/>/resources/autocomplete.js"></script>
+<script>
+autocomplete(document.getElementById("therapeutic"), countries);
+</script>
 	<script type="text/javascript">
 		function enclaveFunction() {
 			var x = document.getElementById("enclave-div");

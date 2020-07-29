@@ -19,6 +19,7 @@
         <n3c:registrationFirstName firstName="${first_name}"/>
         <n3c:registrationLastName lastName="${last_name}"/>
         <n3c:registrationInstitution  institution="${institution}"/>
+        <n3c:registrationOfficialInstitution  officialInstitution="${institution}"/>
         <n3c:registrationCreatedToNow/>
         <n3c:registrationUpdatedToNow/>
     </n3c:registration>
