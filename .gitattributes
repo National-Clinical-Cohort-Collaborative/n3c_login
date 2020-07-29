@@ -23,6 +23,7 @@ WebContent/footer.jsp -text
 WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
 WebContent/logout.jsp -text
+WebContent/mail_test.jsp -text
 WebContent/membership.jsp -text
 WebContent/metadata.jsp -text
 WebContent/navbar.jsp -text
