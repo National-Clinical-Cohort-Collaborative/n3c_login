@@ -17,9 +17,29 @@ input[type=text] {
   background-color: #f1f1f1;
   width: 100%;
 }
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
+
+
+input[type=submit]{
+  border: none;
+  background: rgba(100,42,107,1);
+  background: -moz-linear-gradient(-45deg, rgba(100,42,107,1) 0%, rgba(99,53,112,1) 47%, rgba(70,71,119,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(100,42,107,1)), color-stop(47%, rgba(99,53,112,1)), color-stop(100%, rgba(70,71,119,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(100,42,107,1) 0%, rgba(99,53,112,1) 47%, rgba(70,71,119,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(100,42,107,1) 0%, rgba(99,53,112,1) 47%, rgba(70,71,119,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(100,42,107,1) 0%, rgba(99,53,112,1) 47%, rgba(70,71,119,1) 100%);
+  background: linear-gradient(135deg, rgba(100,42,107,1) 0%, rgba(99,53,112,1) 47%, rgba(70,71,119,1) 100%);
+  color: white;
+}
+
+input[type=submit]:hover{
+  background: rgba(98,41,106,1);
+  background: -moz-linear-gradient(-45deg, rgba(98,41,106,1) 0%, rgba(78,31,92,1) 47%, rgba(70,71,119,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(98,41,106,1)), color-stop(47%, rgba(78,31,92,1)), color-stop(100%, rgba(70,71,119,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(98,41,106,1) 0%, rgba(78,31,92,1) 47%, rgba(70,71,119,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(98,41,106,1) 0%, rgba(78,31,92,1) 47%, rgba(70,71,119,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(98,41,106,1) 0%, rgba(78,31,92,1) 47%, rgba(70,71,119,1) 100%);
+  background: linear-gradient(135deg, rgba(98,41,106,1) 0%, rgba(78,31,92,1) 47%, rgba(70,71,119,1) 100%);
+  color:white;
 }
 .autocomplete-items {
   position: absolute;
@@ -31,6 +51,8 @@ input[type=submit] {
   top: 100%;
   left: 0;
   right: 0;
+  max-height: 300px;
+  overflow: scroll;
 }
 .autocomplete-items div {
   padding: 10px;

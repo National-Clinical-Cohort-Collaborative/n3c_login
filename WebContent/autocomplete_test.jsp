@@ -11,9 +11,9 @@
 <!--Make sure the form has the autocomplete function switched off:-->
 <form autocomplete="off" action="/action_page.php">
   <div class="autocomplete" style="width:600px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+    <input id="myInput" type="text" name="myCountry" placeholder="Medical Specialty">
   </div>
-  <input type="submit">
+   <input type="submit" value="Submit"> <!-- Value is needed for firefox because the default is "submit query" -->
 </form>
 <script>
 autocomplete(document.getElementById("myInput"), countries);

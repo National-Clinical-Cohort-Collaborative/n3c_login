@@ -25,32 +25,38 @@
 <body>
 
 	<jsp:include page="navbar.jsp" flush="true" />
+	
+	<c:if test="${not empty not_logged_in}">
+		<div class=" n3c_alert">
+    		<i class="fa fa-exclamation" aria-hidden="true">&emsp;</i>Our apologies, but you must successfully log in through NIH prior to registering. Click <a href="dologin.jsp">here</a> to be redirected.<br/>
+    	</div>
+    	<c:remove var="not_logged_in"/>
+    </c:if>
+
 
 	<div class="container center-box shadow-border">
     	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Login/Registration Test Harness</h2>
-    	<div>
-			<p>Welcome!  Thank you for your interest in the CD2H program and N3C initiative.</p>
- 
-			<p>Please register your profile information on the following page.  After the profile page, please follow the onboarding instructions
+    	<div style="text-align:center;">
+			<h4 style="margin-bottom:30px;">Welcome!  Thank you for your interest in the CD2H program and N3C initiative.</h4>
+ 			
+    		
+			<p>Please register your profile information on the following page.  After submitting your information, please follow the <a href="https://covid.cd2h.org/onboarding_instructions" target="_blank">onboarding instructions</a>
 			to request access to the N3C Team Drive, Workstream and/or Subgroup specific mailing lists, N3C calendar, Slack, and GitHub.</p>
  
-			<p><i>Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends.
-			Your patience and understanding is appreciated.</i></p>
- 
-			<p>You will also receive a copy of your responses and you are encouraged to update your responses as needed.
-			Contact <a href="mailto:data2health@gmail.com">data2health@gmail.com</a> with any questions.</p>
- 
-			<p><i>Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.</i></p>
+ 			<p>You will receive a copy of your responses and are encouraged to update your information as needed.</p>
+ 			
+			<p class="n3c_alert" style="margin-bottom:0px">Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.</p>
 			
-			<c:if test="${not empty not_logged_in}">
-    	  		Our apologies, but you must successfully log in through NIH prior to registering.<br/>
-    	   	<c:remove var="not_logged_in"/>
-    		</c:if>
-        	<a href="dologin.jsp" class="btn btn-n3c">Click here to Register with N3C</a>
-        	<br/><br/>
-			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">NCATS UNA demo login</a>
-			This is here for the moment to support login debugging.
-			<br/><br/>
+			
+    		
+        	<a href="dologin.jsp" class="btn btn-lg btn-n3c" style="margin-top:30px; margin-bottom:30px;">Click here to Register with N3C</a>
+        	
+			
+			
+			<p style="font-size:15px; font-style:italic; margin-bottom:30px; color:#6d6d6d">Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends. Your patience and understanding is appreciated.</p>
+			
+			<p>Contact <a href="mailto:data2health@gmail.com">data2health@gmail.com</a> with any questions.</p>
+			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">NCATS UNA demo login</a> This is here for the moment to support login debugging.
         </div>
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />
