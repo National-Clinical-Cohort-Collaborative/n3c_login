@@ -4,7 +4,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <%@ taglib prefix="mail" uri="http://slis.uiowa.edu/mailtaglib"%>
 
-<mail:message host="deep-thought.slis.uiowa.edu">
+<mail:message host="gmail">
 	<mail:fromAddress address="david-eichmann@uiowa.edu" name="David Eichmann" />
 	<mail:recipientAddress address="david-eichmann@uiowa.edu" name="David Eichmann" />
 	<mail:subject>Testing tag lib</mail:subject>
