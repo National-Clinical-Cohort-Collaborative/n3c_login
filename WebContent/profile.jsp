@@ -86,7 +86,8 @@
             </c:if>
             
 			<c:if test="${n3c:registrationWorkstreamsValue()}">
-			     <p>Membership in the N3C workstreams has been requested.</p>
+			     <p>Membership in the N3C workstreams currently can be completed by following the
+			     <a href="https://covid.cd2h.org/onboarding_instructions">instructions on the N3C website</a>.</p>
 				<h4 class="accent-text">Workstream Memberships</h4>
 				<div class="row">
 					<n3c:foreachMembership var="x">
