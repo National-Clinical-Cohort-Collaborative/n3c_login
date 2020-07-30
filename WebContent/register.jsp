@@ -80,7 +80,7 @@
 	                <sql:query var="orcids" dataSource="jdbc/N3CLoginTagLib">
 	                    select distinct person.orcid_id,given_names,family_name,organization
 	                    from orcid.person left join orcid.employment on person.id=employment.id
-	                    where end_year is null and family_name = ? and given_names = ?;
+	                    where end_year is null and lower(family_name) = lower(?) and lower(given_names) = lower(?);
 	                    <sql:param><n3c:registrationOfficialLastName/></sql:param>
 	                    <sql:param><n3c:registrationOfficialFirstName/></sql:param>
 	                </sql:query>
@@ -90,7 +90,7 @@
 	                    <label for="orcid_choice">${row.orcid_id} - ${row.family_name}, ${row.given_names} (${row.organization})</label><br>
 	                </c:forEach>
 	                We use ORCiD Person iDs to credit contributions and to disambiguate people. An ORCiD is required to be an author on publications with N3C
-	                and is required to access the N3C secure data enclave. Getting an ORCiD is free at <a href="http://orcid.org">orcid.org</a>. If you do not have an ORCID <i>and do not need one</i> you can leave this blank.
+	                and is required to access the N3C secure data enclave. Getting an ORCiD is free at <a href="http://orcid.org" target="_blank">orcid.org</a>,
                 </div>
             </div>
             <div class="form-group row">
