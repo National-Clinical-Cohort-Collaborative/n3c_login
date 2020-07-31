@@ -1,3 +1,9 @@
+.supplemental-question-info{
+	font-size:14px; 
+	font-weight:300;
+	margin-bottom:0px;
+}
+
 .n3c_alert{
 	text-align:center; 
 	color:#376076; 
@@ -9,6 +15,10 @@
 
 .accent-text{
 	color:#642A6B;
+}
+
+.accent-text_2{
+	color:#376076;
 }
 
 .n3c_logo_navbar{

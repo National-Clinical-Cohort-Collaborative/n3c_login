@@ -46,7 +46,7 @@
     			<div class="col-sm-10">
       				<input name="email" type="text" readonly class="form-control-plaintext" id="email" value="${user_email}">
     			</div>
-    			<label for="" class="required col-sm-2 col-form-label"><i>required fields:</i> </label>
+    			<label for="" class="required col-sm-2 col-form-label"><i style="color:#adaeb1;">required fields:</i> </label>
   			</div>
   			<div class="form-group row">
     			<label for="first_name" class="required col-sm-2 col-form-label">First Name</label>
@@ -68,11 +68,12 @@
     			</div>
   			</div>
 
-           <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:18px;">Access to the N3C Enclave</label><br>
+
+           <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Access to the N3C Enclave <span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to request an N3C Data Enclave account</span></label><br>
             
             <div id="enclave-div" style="display:<c:choose><c:when test="${n3c:registrationEnclaveValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
-                <p>Your request for access to the Enclave will be submitted for approval. You will be notified via email shortly.
-                Please provide these additional details to enhance your ability to collaborate and be credited for contributions.</p>
+                <p style="font-style:italic;">Your request for an N3C Data Enclave account will be submitted for approval. You will receive an email containing further instructions and information on accessing the N3C Data Enclave shortly.</p>
+                <p>Please provide these additional details to enhance your ability to collaborate and be credited for contributions:</p>
             <div class="form-group row">
                 <label for="orcid" class=" required col-sm-2 col-form-label">ORCiD ID</label>
                 <div class="col-sm-10">
@@ -89,8 +90,8 @@
 	                    <input type="radio" id="orcid_choice" name="orcid_choice" value="${row.orcid_id}" onclick="orcidFunction()" >
 	                    <label for="orcid_choice">${row.orcid_id} - ${row.family_name}, ${row.given_names} (${row.organization})</label><br>
 	                </c:forEach>
-	                We use ORCiD Person iDs to credit contributions and to disambiguate people. An ORCiD is required to be an author on publications with N3C
-	                and is required to access the N3C secure data enclave. Getting an ORCiD is free at <a href="http://orcid.org" target="_blank">orcid.org</a>,
+	                <p class="supplemental-question-info">We use ORCiD Person iDs to credit contributions and to disambiguate people. An ORCiD is required to be an author on publications with N3C
+	                and is required to access the N3C secure data enclave. Getting an ORCiD is free at <a href="http://orcid.org" target="_blank">orcid.org</a>.</p>
                 </div>
             </div>
             <div class="form-group row">
@@ -99,7 +100,7 @@
                     <input name="expertise" type="text" class="form-control" id="expertise" value="${n3c:registrationExpertiseValue()}">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" style="margin-bottom:65px;">
                 <label for="therapeutic" class="col-sm-2 col-form-label">Therapeutic Area (for clinicians)</label>
                 <div class="col-sm-10">
                     <input name="therapeutic" type="text" class="form-control" id="therapeutic" value="${n3c:registrationTherapeuticAreaValue()}">
@@ -107,31 +108,31 @@
             </div>
             </div>
 
-           <input type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:18px;">Participate in N3C Workstreams</label><br>
+           <input type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px;">Participate in N3C Workstreams<span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to contribute to the work being done by N3C</span></label><br>
 
 				<div id="workstream-div" style="display: <c:choose><c:when test="${n3c:registrationWorkstreamsValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
 					<div class="form-group row">
 						<label for="gsuite" class="col-sm-2 col-form-label">GSuite (GMail) ID</label>
 						<div class="col-sm-10">
 							<input name="gsuite" type="text" class="form-control" id="gsuite" value="${n3c:registrationGsuiteEmailValue()}">
-							We use Google Drive, Docs, and Sheets to share information. PLEASE ENTER THE ADDRESS YOU WILL USE TO ACCESS GOOGLE DRIVE.
+							<p class="supplemental-question-info">We use Google Drive, Docs, and Sheets to share information. <strong class="accent-text">PLEASE ENTER THE ADDRESS YOU WILL USE TO ACCESS GOOGLE DRIVE.</strong>
 							If you do NOT have any address with which you currently can use Google Drive, Docs, or Sheets, NCATS is able to provide one for you.
-							If this is you, please contact <a href="mailto:mariam.deacy@nih.gov">mariam.deacy@nih.gov</a>.
+							If this is you, please contact <a href="mailto:mariam.deacy@nih.gov" target="_blank">mariam.deacy@nih.gov</a>.</p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="slack" class="col-sm-2 col-form-label">Slack Email</label>
 						<div class="col-sm-10">
 							<input name="slack" type="text" class="form-control" id="slack"	value="${n3c:registrationSlackIdValue()}">
-							We use Slack to communicate, and invite all who onboard to join our Slack org.
+							<p class="supplemental-question-info">We use Slack to communicate and invite all who onboard to join our <a href="https://join.slack.com/t/cd2h/signup" target="_blank">Slack org</a>.</p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="github" class="col-sm-2 col-form-label">GitHub ID</label>
 						<div class="col-sm-10">
 							<input name="github" type="text" class="form-control" id="github" value="${n3c:registrationGithubIdValue()}">
-							We use Github for issue tracking and management. You can get one free from <a href="http://github.com">GitHub.com</a> if you do not already have one.
-							You will be able to view issues without a handle, however, you will not be able to log issues without a handle.
+							<p class="supplemental-question-info">We use Github for issue tracking and management. You can create a free profile and generate a handle at <a href="http://github.com" target="_blank">GitHub.com</a> if you do not already have one.
+							You will be able to view issues without a handle; however, you will not be able to log issues without one.</p>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -144,19 +145,21 @@
 		                <label for="assistant" class="col-sm-2 col-form-label">Assistant's Email</label>
 		                <div class="col-sm-10">
 		                    <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
-		                    If you have an assistant that you would like copied in correspondence about meeting schedules, please provide their contact email.
+		                    <p class="supplemental-question-info">If you have an assistant that you would like copied in correspondence about meeting schedules, please provide their contact email.</p>
 		                </div>
 		            </div>
-					<p>Please select the workstreams in which you would like to	participate:</p>
-		            <n3c:foreachWorkstream var="x">
-		                <n3c:workstream>
-		                    <div class="form-check mb-4">
-		                    	<c:set var='workstream' value="${n3c:workstreamLabelValue()}"/>
-		                        <input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input" <c:if test="${n3c:membershipExists(user_email,workstream)}">checked</c:if>>
-		                        <label class="form-check-label" for="${n3c:workstreamLabelValue()}"><strong class="accent-text" style="font-size:18px;"><n3c:workstreamFullName/> </strong> - <n3c:workstreamDescription/></label>
-		                    </div>
-		                </n3c:workstream>
-		            </n3c:foreachWorkstream>
+					<p style="text-align:center; font-size:18px; font-weight:500;">Please select the workstream(s) in which you would like to	participate:</p>
+		            <div  style="margin-bottom:65px;">
+			            <n3c:foreachWorkstream var="x">
+			                <n3c:workstream>
+			                    <div class="form-check mb-4">
+			                    	<c:set var='workstream' value="${n3c:workstreamLabelValue()}"/>
+			                        <input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input" <c:if test="${n3c:membershipExists(user_email,workstream)}">checked</c:if>>
+			                        <label class="form-check-label" for="${n3c:workstreamLabelValue()}"><strong class="accent-text_2" style="font-size:16px;"><n3c:workstreamFullName/> </strong> - <span style="font-weight:300; font-size:16px"><n3c:workstreamDescription/></span></label>
+			                    </div>
+			                </n3c:workstream>
+			            </n3c:foreachWorkstream>
+		            </div>
 				</div>
 
 				<input type="hidden" name="official_first_name" value="${n3c:registrationOfficialFirstNameValue()}">

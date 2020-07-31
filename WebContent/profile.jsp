@@ -82,13 +82,14 @@
 			</div>
 
            <c:if test="${n3c:registrationEnclaveValue()}">
-                 <p>Access to the N3C Enclave has been requested.</p>
+           		<h4 class="accent-text">N3C Enclave Access</h4>
+                 <p style="font-style: italic; margin-bottom:30px;"><i class="fa fa-check" aria-hidden="true">&ensp;</i>Access to the N3C Enclave has been requested.</p>
             </c:if>
             
 			<c:if test="${n3c:registrationWorkstreamsValue()}">
-			     <p>Membership in the N3C workstreams currently can be completed by following the
-			     <a href="https://covid.cd2h.org/onboarding_instructions">instructions on the N3C website</a>.</p>
 				<h4 class="accent-text">Workstream Memberships</h4>
+				<p style="font-style:italic;">If you have joined an N3C workstream and have not yet completed the onboarding process, please follow Step 2 in the
+			     <a href="https://covid.cd2h.org/onboarding_instructions" target="_blank">instructions on the N3C website</a> to gain access to important documents and communications.</p>
 				<div class="row">
 					<n3c:foreachMembership var="x">
 						<n3c:membership>
