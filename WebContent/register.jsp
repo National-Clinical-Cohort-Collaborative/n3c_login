@@ -220,8 +220,8 @@ autocomplete(document.getElementById("therapeutic"), countries);
               }
               var enclave = document.getElementById("enclave").checked;
               var orcid = document.forms["registration"]["orcid"].value;
-              if (enclave == true && orcid == "") {
-                alert("An ORCiD ID is required for Enclave access");
+              if (enclave == true && orcid.match(/^([0-9]{4}-){3}[0-9]{3}[0-9X]$/) == null) {
+                alert("A valid ORCiD ID is required for Enclave access (0000-0000-0000-0000)");
                 return false;
               }
 		}
