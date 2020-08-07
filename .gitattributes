@@ -17,6 +17,11 @@ WebContent/attrs.jsp -text
 WebContent/autocomplete_test.jsp -text
 WebContent/dologin.jsp -text
 WebContent/dologout.jsp -text
+WebContent/email/citizen_pending.jsp -text
+WebContent/email/dua_pending.jsp -text
+WebContent/email/in_process.jsp -text
+WebContent/email/problem_resolution.jsp -text
+WebContent/email/send.jsp -text
 WebContent/enclave.jsp -text
 WebContent/fake_register.jsp -text
 WebContent/footer.jsp -text

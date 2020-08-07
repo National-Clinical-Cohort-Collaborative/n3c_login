@@ -109,7 +109,9 @@
                     </div>
                 </div>
             </div>
-        
+        <c:if test="${empty n3c:registrationEmailedValue()}">
+        	<jsp:include page="email/send.jsp"/>
+        </c:if>
  		</n3c:registration>
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />
