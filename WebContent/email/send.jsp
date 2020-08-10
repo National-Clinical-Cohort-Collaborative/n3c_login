@@ -75,4 +75,5 @@
 			</mail:message>
 		</c:otherwise>
 	</c:choose>
+	<n3c:registrationEmailedToNow/>
 </n3c:registration>

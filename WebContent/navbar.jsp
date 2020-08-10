@@ -6,6 +6,9 @@
         <a class="nav-link" href="index.jsp">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="admin.jsp">Admin</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="profile.jsp">Profile</a>
       </li>
       <li class="nav-item" style="flex-grow:1; text-align:right;">
