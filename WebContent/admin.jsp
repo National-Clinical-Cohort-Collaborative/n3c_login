@@ -61,7 +61,7 @@
 	    </table>
 
         <sql:query var="rors" dataSource="jdbc/N3CLoginTagLib">
-            select official_institution,count(*)
+            select case when official_institution='' then 'none' else official_institution end,count(*)
             from n3c_admin.registration
             where not exists (select * from ror.organization where name=official_institution)
               and official_institution not in ('NIH','login.gov')
