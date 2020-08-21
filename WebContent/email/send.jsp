@@ -38,6 +38,7 @@
 			<mail:message host="gmail">
 				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
+				<mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration in Process</mail:subject>
 				<mail:htmlBody>
 					<jsp:include page="in_process.jsp"/>
@@ -48,6 +49,7 @@
 			<mail:message host="gmail">
 				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
+                <mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration Pending</mail:subject>
 				<mail:htmlBody>
 					<jsp:include page="dua_pending.jsp"/>
@@ -58,6 +60,7 @@
 			<mail:message host="gmail">
 				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
+                <mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration Pending</mail:subject>
 				<mail:htmlBody>
 					<jsp:include page="citizen_pending.jsp"/>
@@ -68,6 +71,7 @@
 			<mail:message host="gmail">
 				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
+                <mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration in Problem Resolution</mail:subject>
 				<mail:htmlBody>
 					<jsp:include page="problem_resolution.jsp"/>
