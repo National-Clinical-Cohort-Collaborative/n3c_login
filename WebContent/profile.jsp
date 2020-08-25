@@ -43,12 +43,12 @@
 	
 	<div class="container center-box shadow-border">
 		<h2 class="header-text">
-			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration
+			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C & CD2H Registration
 		</h2>
 
 		<n3c:registration email="${user_email}">
 			<div class="mb-3" style="text-align:center;">
-				<h3>N3C Profile for: <n3c:registrationEmail /></h3>
+				<h3>Profile for: <n3c:registrationEmail /></h3>
 				<small>Created: <n3c:registrationCreated /> &emsp; Updated: <n3c:registrationUpdated /></small>
 			</div>
 			<div class="container">
@@ -87,7 +87,7 @@
             </c:if>
             
 			<c:if test="${n3c:registrationWorkstreamsValue()}">
-				<h4 class="accent-text">Workstream Memberships</h4>
+				<h4 class="accent-text">N3C Workstream Memberships</h4>
 				<p style="font-style:italic;">If you have joined an N3C workstream and have not yet completed the onboarding process, please follow Step 2 in the
 			     <a href="https://covid.cd2h.org/onboarding_instructions" target="_blank">instructions on the N3C website</a> to gain access to important documents and communications.</p>
 				<div class="row">

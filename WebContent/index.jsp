@@ -35,7 +35,7 @@
 
 
 	<div class="container center-box shadow-border">
-    	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Login/Registration</h2>
+    	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C & CD2H Login/Registration</h2>
     	<div style="text-align:center;">
 			<h4 style="margin-bottom:30px;">Welcome!  Thank you for your interest in the CD2H program and N3C initiative.</h4>
  			
@@ -45,18 +45,20 @@
  
  			<p>You will receive a copy of your responses and are encouraged to update your information as needed.</p>
  			
-			<p class="n3c_alert" style="margin-bottom:0px">Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.</p>
+			<p class="n3c_alert" style="margin-bottom:0px; display:none;">Please note the form has recently been updated; please review your prior responses to assure accuracy as the order of questions has changed.</p>
 			
 			
     		
-        	<a href="dologin.jsp" class="btn btn-lg btn-n3c" style="margin-top:30px; margin-bottom:30px;">Click here to Register with N3C</a>
+        	<a href="dologin.jsp" class="btn btn-lg btn-n3c" style="margin-top:30px; margin-bottom:30px;">Click here to Register</a>
         	
 			
 			
-			<p style="font-size:15px; font-style:italic; margin-bottom:30px; color:#6d6d6d">Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends. Your patience and understanding is appreciated.</p>
+			<p style="font-size:15px; font-style:italic; margin-bottom:30px; color:#6d6d6d; display:none;">Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends. Your patience and understanding is appreciated.</p>
 			
 			<p>Contact <a href="mailto:data2health@gmail.com">data2health@gmail.com</a> with any questions.</p>
-			<a href="dologin.jsp?attrs=1" class="btn btn-n3c">NCATS UNA demo login</a> This is here for the moment to support login debugging.
+			<div style="display:none;">
+				<a href="dologin.jsp?attrs=1" class="btn btn-n3c">NCATS UNA demo login</a> This is here for the moment to support login debugging.
+			</div>
         </div>
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />

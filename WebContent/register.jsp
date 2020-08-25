@@ -36,7 +36,7 @@
 	<jsp:include page="navbar.jsp" flush="true" />
 	
 	<div class="container center-box shadow-border">
-    	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration</h2>
+    	<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C & CD2H Registration</h2>
     	
     	<n3c:registration email="${user_email}">
     	
