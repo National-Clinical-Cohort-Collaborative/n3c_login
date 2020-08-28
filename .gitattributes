@@ -41,6 +41,7 @@ WebContent/resources/autocomplete.css -text
 WebContent/resources/autocomplete.js -text
 WebContent/resources/d3.v4.min.js -text
 WebContent/resources/n3c_login_style.css -text
+WebContent/roster.jsp -text
 WebContent/session.jsp -text
 WebContent/sls.jsp -text
 WebContent/submit_enclave.jsp -text
