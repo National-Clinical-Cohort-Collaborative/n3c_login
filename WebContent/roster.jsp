@@ -47,13 +47,32 @@
 			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration Admin
 		</h2>
 		
-		<h3>User Roster</h3>
+		<h3>${param.category} User Roster</h3>
 	    <sql:query var="categories" dataSource="jdbc/N3CLoginTagLib">
 	        select email,first_name,last_name,institution,orcid_id,updated
-	        from n3c_admin.staging_user_incommon
+	        <c:choose>
+	           <c:when test="${param.category == 'Citizen Scientist'}">
+                    from n3c_admin.staging_user_citizen
+	           </c:when>
+               <c:when test="${param.category == 'InCommon'}">
+                    from n3c_admin.staging_user_incommon
+               </c:when>
+               <c:when test="${param.category == 'InCommon (name mismatch)'}">
+                    from n3c_admin.staging_user_incommon_mismatch
+               </c:when>
+               <c:when test="${param.category == 'NIH'}">
+                    from n3c_admin.staging_user_nih
+               </c:when>
+               <c:when test="${param.category == 'Non-InCommon'}">
+                    from n3c_admin.staging_user_non_incommon
+               </c:when>
+	           <c:otherwise>
+                   from n3c_admin.staging_user_incommon
+	           </c:otherwise>
+	        </c:choose>
 	        order by 4,3;
 	    </sql:query>
-	    <table>
+	    <table class="table table-hover">
 	    <tr><th>Email</th><th>Name</th><th>Institution</th><th>ORCiD</th><th>Last Updated</th></tr>
 	    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
 	        <tr><td>${row.email}</td><td>${row.last_name}, ${row.first_name}</td><td>${row.institution}</td><td>${row.orcid_id}</td><td>${row.updated}</td></tr>

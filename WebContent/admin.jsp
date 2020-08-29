@@ -53,10 +53,10 @@
 	        from n3c_admin.user_stats
 	        order by 1;
 	    </sql:query>
-	    <table>
+	    <table class="table table-hover">
 	    <tr><th>Category</th><th>Count</th></tr>
 	    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
-	        <tr><td>${row.category}</td><td align=right>${row.count}</td></tr>
+	        <tr><td><a href="roster.jsp?category=${row.category}">${row.category}</a></td><td align=right>${row.count}</td></tr>
 	    </c:forEach>
 	    </table>
 
