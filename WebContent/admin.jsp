@@ -54,7 +54,9 @@
 	        order by 1;
 	    </sql:query>
 	    <table class="table table-hover">
+	    <thead>
 	    <tr><th>Category</th><th>Count</th></tr>
+	    </thead>
 	    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
 	        <tr><td><a href="roster.jsp?category=${row.category}">${row.category}</a></td><td align=right>${row.count}</td></tr>
 	    </c:forEach>

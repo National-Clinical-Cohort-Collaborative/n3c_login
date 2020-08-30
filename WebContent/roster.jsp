@@ -73,7 +73,7 @@
 	        order by 4,3;
 	    </sql:query>
 	    <table class="table table-hover">
-	    <tr><th>Email</th><th>Name</th><th>Institution</th><th>ORCiD</th><th>Last Updated</th></tr>
+	    <thead><tr><th>Email</th><th>Name</th><th>Institution</th><th>ORCiD</th><th>Last Updated</th></tr></thead>
 	    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
 	        <tr><td>${row.email}</td><td>${row.last_name}, ${row.first_name}</td><td>${row.institution}</td><td>${row.orcid_id}</td><td>${row.updated}</td></tr>
 	    </c:forEach>
