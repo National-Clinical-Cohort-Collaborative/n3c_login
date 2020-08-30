@@ -24,6 +24,7 @@
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
 	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,6 +40,15 @@
 </style>
 
 <body>
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#roster').DataTable( {
+    	"order": [[ 2, 'asc' ], [ 1, 'asc' ]]
+    } );
+} );
+</script>
 
 	<jsp:include page="navbar.jsp" flush="true" />
 	
@@ -72,11 +82,13 @@
 	        </c:choose>
 	        order by 4,3;
 	    </sql:query>
-	    <table class="table table-hover">
+	    <table id="roster" class="display">
 	    <thead><tr><th>Email</th><th>Name</th><th>Institution</th><th>ORCiD</th><th>Last Updated</th></tr></thead>
+	    <tbody>
 	    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
 	        <tr><td>${row.email}</td><td>${row.last_name}, ${row.first_name}</td><td>${row.institution}</td><td>${row.orcid_id}</td><td>${row.updated}</td></tr>
 	    </c:forEach>
+        </tbody>
 	    </table>
 
 	</div>
