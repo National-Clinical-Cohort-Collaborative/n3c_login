@@ -88,7 +88,7 @@
   			</div>
 
 
-           <input type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Access to the N3C Enclave <span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to request an N3C Data Enclave account</span></label><br>
+           <input style="width:16px; height:16px;" type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Access to the N3C Enclave <span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to request an N3C Data Enclave account</span></label><br>
             
             <div id="enclave-div" style="display:<c:choose><c:when test="${n3c:registrationEnclaveValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
                 <p style="font-style:italic;">Your request for an N3C Data Enclave account will be submitted for approval. You will receive an email containing further instructions and information on accessing the N3C Data Enclave shortly.</p>
@@ -127,7 +127,7 @@
             </div>
             </div>
 
-           <input type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px;">Participate in N3C Workstreams<span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to contribute to the work being done by N3C</span></label><br>
+           <input style="width:16px; height:16px;" type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px;">Participate in N3C Workstreams<span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to contribute to the work being done by N3C</span></label><br>
 
 				<div id="workstream-div" style="display: <c:choose><c:when test="${n3c:registrationWorkstreamsValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
 					<div class="form-group row">
