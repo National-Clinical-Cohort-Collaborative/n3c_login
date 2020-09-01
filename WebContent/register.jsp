@@ -72,7 +72,7 @@
 		                </sql:query>
 		                <c:forEach items="${rors.rows}" var="row" varStatus="rowCounter">
 		                	<c:set var='found' value='yes'/>
-		                	<c:set var='executed' value='${duaexecuted}'/>
+		                	<c:set var='executed' value='${row.duaexecuted}'/>
 		                </c:forEach>
 		                <c:choose>
 		                <c:when test="${empty found}">
