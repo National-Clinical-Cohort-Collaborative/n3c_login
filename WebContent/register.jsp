@@ -67,22 +67,28 @@
       				<input name="institution" type="text" class="form-control" id="institution" value="${n3c:registrationInstitutionValue()}">
       				<c:if test="${n3c:registrationOfficialInstitutionValue() != 'login.gov' && n3c:registrationOfficialInstitutionValue() != 'NIH' }">
 		                <sql:query var="rors" dataSource="jdbc/N3CLoginTagLib">
-		                    select id from ror.organization where name = ?
+		                    select institutionid,duaexecuted from n3c_admin.dua_status where official_institution = ?
 		                    <sql:param><n3c:registrationOfficialInstitution/></sql:param>
 		                </sql:query>
 		                <c:forEach items="${rors.rows}" var="row" varStatus="rowCounter">
 		                	<c:set var='found' value='yes'/>
+		                	<c:set var='executed' value='${duaexecuted}'/>
 		                </c:forEach>
-		                <c:if test="${empty found }">
+		                <c:choose>
+		                <c:when test="${empty found}">
 	                		<p><b>Please Note:</b> The organization name returned by your login does not match those we have on file.
 	                		Please allow 1-3 business days for us to match the name your institution returned to our list.
 	                		You will receive an email notifying you of the issue being resolved.</p>
-		                </c:if>
-      				</c:if>
-      				<c:if test="${not empty found }">
-	                	<p><b>Please Note:</b> Your organization has not yet executed the required Data Use Agreement (DUA) with NCATS.
-	                	You account request will be held in the pending queue until the DUA is executed.  You will receive details
-	                	regarding your account and login procedures at that time.</p>
+		                </c:when>
+		                <c:when test="${empty executed}">
+		                	<p><b>Please Note:</b> Your organization has not yet executed the required Data Use Agreement (DUA) with NCATS.
+		                	You account request will be held in the pending queue until the DUA is executed.  You will receive details
+		                	regarding your account and login procedures at that time.</p>
+		                </c:when>
+		                <c:otherwise>
+		                	<p>Your organization has already executed the required Data Use Agreement (DUA) with NCATS.</p>
+		                </c:otherwise>
+		                </c:choose>
       				</c:if>
     			</div>
   			</div>
