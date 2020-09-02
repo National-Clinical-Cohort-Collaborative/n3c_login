@@ -110,6 +110,17 @@
                 </div>
             </div>
         <c:if test="${empty n3c:registrationEmailedValue()}">
+        	<p>You have successfully completed your registration for membership to N3C and the N3C Data Enclave!</p>
+
+			<p>Within the next 24-72 hours, you will receive an email at the account address used for registration with instructions
+			for creating your N3C Data Enclave account. Please follow the instructions in that email once you have received it.</p>
+
+			<p>For assistance, contact the <a href="https://covid.cd2h.org/help_desk">N3C Help Desk</a>.</p>
+
+			<p>Best regards and happy researching!</p>
+ 
+			<p>NCATS and the Center for Data to Health (CD2H)<br>
+			<a href="mailto:data2health@gmail.com">data2health@gmail.com</a></p>
         	<jsp:include page="email/send.jsp"/>
         </c:if>
  		</n3c:registration>
