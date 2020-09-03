@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="n3c" uri="http://icts.uiowa.edu/n3c"%>
+<c:if test="${empty user_email}">
+    <c:set scope="session" var="not_logged_in" value="t"/>
+    <c:redirect url="index.jsp"/>
+</c:if>
 
 <n3c:registration email="${user_email}">
 	<n3c:registrationOfficialFirstName officialFirstName="${param.official_first_name}" />

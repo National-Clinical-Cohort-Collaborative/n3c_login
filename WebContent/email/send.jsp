@@ -15,7 +15,15 @@
 
 	<c:if test="${empty valid}">
 		<sql:query var="rors" dataSource="jdbc/N3CLoginTagLib">
-			select email from palantir.n3c_user where email = ? and institution in (select name from palantir.n3c_organization where dua_signed is null);
+			select email from palantir.n3c_user
+			where email = ?
+			  and (
+			  	institution in (select name from palantir.n3c_organization where dua_signed is null)
+			  	or (
+			  		institution in (select name from ror.organization)
+			  	and institution not in (select name from palantir.n3c_organization)
+			  	)
+			  );
 			<sql:param><n3c:registrationEmail /></sql:param>
 		</sql:query>
 		<c:forEach items="${rors.rows}" var="row" varStatus="rowCounter">
