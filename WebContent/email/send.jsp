@@ -23,6 +23,10 @@
 			  		institution in (select name from ror.organization)
 			  	and institution not in (select name from palantir.n3c_organization)
 			  	)
+			  	or (
+			  		email like '%.edu'
+			  	and institution not in (select name from palantir.n3c_organization)
+			  	)
 			  );
 			<sql:param><n3c:registrationEmail /></sql:param>
 		</sql:query>
