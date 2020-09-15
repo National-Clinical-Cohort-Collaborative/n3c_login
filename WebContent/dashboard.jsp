@@ -5,11 +5,6 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <!DOCTYPE html>
 
-<c:if test="${empty user_email}">
-	<c:set scope="session" var="not_logged_in" value="t" />
-	<c:redirect url="index.jsp" />
-</c:if>
-
 <html>
 <head>
 <meta charset="utf-8">
