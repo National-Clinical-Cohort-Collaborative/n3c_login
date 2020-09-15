@@ -18,6 +18,7 @@ WebContent/admin_match_domain.jsp -text
 WebContent/admin_match_incommon.jsp -text
 WebContent/attrs.jsp -text
 WebContent/autocomplete_test.jsp -text
+WebContent/dashboard.jsp -text
 WebContent/dologin.jsp -text
 WebContent/dologout.jsp -text
 WebContent/email/citizen_pending.jsp -text

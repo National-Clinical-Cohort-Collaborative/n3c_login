@@ -8,6 +8,9 @@
 			</li>
 			<c:if test="${not empty admin}">
 				<li class="nav-item">
+					<a class="nav-link" href="dashboard.jsp">Dashboard</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="admin.jsp">Admin</a>
 				</li>
 			</c:if>
