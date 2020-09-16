@@ -29,6 +29,7 @@ WebContent/email/send.jsp -text
 WebContent/enclave.jsp -text
 WebContent/fake_register.jsp -text
 WebContent/footer.jsp -text
+WebContent/head.jsp -text
 WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
 WebContent/logout.jsp -text
