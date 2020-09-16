@@ -89,16 +89,20 @@
 		<div class="container center-box" id=others style="float: left; width: 10%">
 	</div>
 		<div class="container center-box" id=others style="float: left; width: 45%">
-		<h3>Registrations By Date</h3>
+		<h3>By Date</h3>
 	    <table class="table table-hover">
 	    <thead>
-	    <tr><th>Date</th><th>Count</th></tr>
+	    <tr><th>Date</th><th># DUAs Signed</th><th># Users Registered</th></tr>
 	    </thead>
 	    <sql:query var="duas" dataSource="jdbc/N3CLoginTagLib">
-	        select created::date,count(*) from n3c_admin.registration group by 1 order by 1 desc;
+	        select * from
+	           (select created::date as date,count(*) as registrations from n3c_admin.registration group by 1) as foo
+	        natural full outer join
+	           (select duaexecuted::date as date,count(*) as duas from n3c_admin.dua_master group by 1) as bar
+	        order by 1 desc;
 	    </sql:query>
 	    <c:forEach items="${duas.rows}" var="row" varStatus="rowCounter">
-	        <tr><td>${row.created}</td><td align=right>${row.count}</td></tr>
+	        <tr><td>${row.date}</td><td align=right>${row.duas}</td><td align=right>${row.registrations}</td></tr>
 	    </c:forEach>
 	    </table>
 	    </div>
