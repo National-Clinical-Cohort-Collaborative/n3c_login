@@ -2,6 +2,7 @@
 /.classpath -text svneol=unset#application/xml
 /.project -text svneol=unset#application/xml
 .settings/.jsdtscope -text svneol=unset#application/xml
+.settings/org.eclipse.core.resources.prefs -text
 .settings/org.eclipse.jdt.core.prefs -text
 .settings/org.eclipse.m2e.core.prefs -text
 .settings/org.eclipse.wst.common.component -text svneol=unset#application/xml
@@ -24,6 +25,7 @@ WebContent/dologout.jsp -text
 WebContent/email/citizen_pending.jsp -text
 WebContent/email/dua_pending.jsp -text
 WebContent/email/in_process.jsp -text
+WebContent/email/nag.jsp -text
 WebContent/email/problem_resolution.jsp -text
 WebContent/email/send.jsp -text
 WebContent/enclave.jsp -text
