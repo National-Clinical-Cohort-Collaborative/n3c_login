@@ -28,7 +28,6 @@ WebContent/email/in_process.jsp -text
 WebContent/email/nag.jsp -text
 WebContent/email/problem_resolution.jsp -text
 WebContent/email/send.jsp -text
-WebContent/enclave.jsp -text
 WebContent/fake_register.jsp -text
 WebContent/footer.jsp -text
 WebContent/head.jsp -text
