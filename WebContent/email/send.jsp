@@ -48,7 +48,7 @@
 	<c:choose>
 		<c:when test="${not empty valid}">
 			<mail:message host="gmail">
-				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
+				<mail:fromAddress address="noreply@ctsa.io" name="The N3C Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
 				<mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration in Process</mail:subject>
@@ -59,7 +59,7 @@
 		</c:when>
 		<c:when test="${empty valid and not empty dua_pending}">
 			<mail:message host="gmail">
-				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
+				<mail:fromAddress address="noreply@ctsa.io" name="The N3C Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
                 <mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration Pending</mail:subject>
@@ -70,7 +70,7 @@
 		</c:when>
 		<c:when test="${empty valid and empty dua_pending and not empty citizen_pending}">
 			<mail:message host="gmail">
-				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
+				<mail:fromAddress address="noreply@ctsa.io" name="The N3C Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
                 <mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration Pending</mail:subject>
@@ -81,7 +81,7 @@
 		</c:when>
 		<c:otherwise>
 			<mail:message host="gmail">
-				<mail:fromAddress address="noreply@ctsa.io" name="The NC3 Team" />
+				<mail:fromAddress address="noreply@ctsa.io" name="The N3C Team" />
 				<mail:recipientAddress address="${user_email}" name="${n3c:registrationFirstNameValue()} ${n3c:registrationLastNameValue()}" />
                 <mail:bccAddress address="david-eichmann@uiowa.edu"/>
 				<mail:subject>N3C Registration in Problem Resolution</mail:subject>
