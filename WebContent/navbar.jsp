@@ -11,7 +11,10 @@
 					<a class="nav-link" href="dashboard.jsp">Dashboard</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="admin.jsp">Admin</a>
+					<a class="nav-link" href="admin.jsp">User Admin</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="project_roster.jsp">Project Roster</a>
 				</li>
 			</c:if>
 			<li class="nav-item">

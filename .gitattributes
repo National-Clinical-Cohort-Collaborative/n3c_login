@@ -39,6 +39,8 @@ WebContent/membership.jsp -text
 WebContent/metadata.jsp -text
 WebContent/navbar.jsp -text
 WebContent/profile.jsp -text
+WebContent/project_roster.jsp -text
+WebContent/project_roster_feed.jsp -text
 WebContent/register.jsp -text
 WebContent/resources/autocomplete.css -text
 WebContent/resources/autocomplete.js -text
