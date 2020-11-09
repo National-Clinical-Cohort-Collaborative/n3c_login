@@ -80,10 +80,7 @@ $.getJSON("project_roster_feed.jsp", function(data){
              },
         	{
             	data: 'lead_investigator',
-            	orderable: true,
-        		render: function ( data, type, row ) {
-        			return '<a href="project.jsp?uid='+ row.uid + '"><span style="color:#376076";>' + row.lead_investigator + '<\/span></a>';
-             		}
+            	orderable: true
         	 },
         	{ data: 'domain_team', visible: true, orderable: true}
     	]
