@@ -31,6 +31,7 @@
 				<n3c:project>
 					<h4><n3c:projectTitle /></h4>
 					<p><n3c:projectResearchStatement /></p>
+                   <input style="width:16px; height:16px;" type="checkbox" id="domain" name="domain" value="domain" <c:if test="${n3c:projectDomainTeamValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">This is a domain team project.</label><br>
 					<ul>
 						<n3c:foreachDomainTeam var="y" sortCriteria="title">
 							<n3c:domainTeam>
