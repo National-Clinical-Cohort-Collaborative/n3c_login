@@ -50,6 +50,7 @@ WebContent/resources/n3c_login_style.css -text
 WebContent/roster.jsp -text
 WebContent/session.jsp -text
 WebContent/sls.jsp -text
+WebContent/submit_binding.jsp -text
 WebContent/submit_enclave.jsp -text
 WebContent/submit_membership.jsp -text
 WebContent/submit_registration.jsp -text

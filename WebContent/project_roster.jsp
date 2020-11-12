@@ -82,7 +82,21 @@ $.getJSON("project_roster_feed.jsp", function(data){
             	data: 'lead_investigator',
             	orderable: true
         	 },
-        	{ data: 'domain_team', visible: true, orderable: true}
+        	{ data: 'domain_team', visible: true, orderable: true},
+         	{
+        		data: 'bindings',
+        		orderable: true,
+        		render: function ( data, type, row ) {
+        			if (row.bindings == null)
+        				return '';
+        			buffer = "<ul>";
+        			for (i in row.bindings) {
+        				buffer += '<li><a href="https://covid.cd2h.org/node/'+ row.bindings[i].nid + '"><span style="color:#376076";>' + row.bindings[i].title + '<\/span></a>';
+        			}
+        			buffer += "</ul>";
+        			return buffer;
+             		}
+             }
     	]
 	} );
 

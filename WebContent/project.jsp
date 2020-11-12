@@ -28,22 +28,22 @@
 	   	<form name="bind" method='POST' action='submit_binding.jsp'>
 		<n3c:registration email="${param.email}">
 			<h3><n3c:registrationFirstName /> <n3c:registrationLastName /></h3>
-			<n3c:foreachProject var="x">
-				<n3c:project>
+				<n3c:project uid="${param.uid}">
 					<h4><n3c:projectTitle /></h4>
 					<p><n3c:projectResearchStatement /></p>
-                   <input style="width:16px; height:16px;" type="checkbox" id="domain" name="domain" value="domain" <c:if test="${n3c:projectDomainTeamValue()}">checked</c:if> > <label for="domain" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">This is a domain team project.</label><br>
+                   <input style="width:16px; height:16px;" type="checkbox" id="domain" name="domain" value="true" <c:if test="${n3c:projectDomainTeamValue()}">checked</c:if> > <label for="domain" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">This is a domain team project.</label><br>
 					<label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Associate this project with the following domain teams:</label><br>
-					<div>
+					<div class="col-sm-10">
 						<n3c:foreachDomainTeam var="y" sortCriteria="title">
 							<n3c:domainTeam>
-			                        <input type="checkbox" id="${n3c:domainTeamNidValue()}" name="${n3c:domainTeamNidValue()}" value="${n3c:domainTeamNidValue()}" class="form-check-input" <c:if test="${n3c:bindingExists(n3c:registrationEmailValue(),n3c:projectUidValue(),n3c:domainTeamNidValue()+'')}">checked</c:if>>
+			                        <input type="checkbox" id="${n3c:domainTeamNidValue()}" name="team" value="${n3c:domainTeamNidValue()}" class="form-check-input" <c:if test="${n3c:bindingExists(n3c:registrationEmailValue(),n3c:projectUidValue(),n3c:domainTeamNidValue()+'')}">checked</c:if>>
 			                        <label class="form-check-label" for="${n3c:domainTeamNidValue()}"><a href="https://covid.cd2h.org/node/<n3c:domainTeamNid/>"><n3c:domainTeamTitle /></a></label><br>
 							</n3c:domainTeam>
 						</n3c:foreachDomainTeam>
 					</div>
+					<input type="hidden" name="email" value="${n3c:projectEmailValue()}">
+					<input type="hidden" name="uid" value="${n3c:projectUidValue()}">
 				</n3c:project>
-			</n3c:foreachProject>
 			<br>
             <div style="text-align:left;">
             	<button class="btn btn-n3c" type="submit" name="action" value="submit">Submit</button>
