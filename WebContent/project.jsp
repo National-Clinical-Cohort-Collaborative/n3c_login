@@ -26,7 +26,7 @@
 	<div class="container center-box shadow-border">
 		<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">Your Approved N3C Enclave Projects</h2>
 	   	<form name="bind" method='POST' action='submit_binding.jsp'>
-		<n3c:registration email="chute@jhu.edu">
+		<n3c:registration email="${param.email}">
 			<h3><n3c:registrationFirstName /> <n3c:registrationLastName /></h3>
 			<n3c:foreachProject var="x">
 				<n3c:project>

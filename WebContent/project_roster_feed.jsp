@@ -5,8 +5,9 @@
 select
     jsonb_pretty(jsonb_agg(roster))
 from
-     	(select uid,title,lead_investigator,task_team as domain_team
-     			from n3c_admin.enclave_project
+     	(select uid,title,lead_investigator,email,task_team as domain_team
+     			from n3c_admin.enclave_project, n3c_admin.registration
+     			where lead_investigator = first_name||' '||last_name
      			order by title
      	) as roster
 ;

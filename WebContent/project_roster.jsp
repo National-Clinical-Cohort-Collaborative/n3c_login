@@ -75,7 +75,7 @@ $.getJSON("project_roster_feed.jsp", function(data){
         		data: 'title',
         		orderable: true,
         		render: function ( data, type, row ) {
-        			return '<a href="project.jsp?uid='+ row.uid + '"><span style="color:#376076";>' + row.title + '<\/span></a>';
+        			return '<a href="project.jsp?uid='+ row.uid + '&email=' + row.email +  '"><span style="color:#376076";>' + row.title + '<\/span></a>';
              		}
              },
         	{
