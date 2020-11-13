@@ -47,6 +47,7 @@ $.getJSON("project_roster_feed.jsp", function(data){
 	var table = document.createElement("table");
 	table.className = 'table table-hover';
 	table.style.width = '100%';
+	table.style.textAlign = "left";
 	table.id="table1";
 
 	var header= table.createTHead();
@@ -74,6 +75,7 @@ $.getJSON("project_roster_feed.jsp", function(data){
         	{
         		data: 'title',
         		orderable: true,
+        		width: '50%',
         		render: function ( data, type, row ) {
         			return '<a href="project.jsp?uid='+ row.uid + '&email=' + row.email +  '"><span style="color:#376076";>' + row.title + '<\/span></a>';
              		}
