@@ -15,6 +15,7 @@ WebContent/WEB-INF/web.xml -text svneol=unset#application/xml
 WebContent/abms_data.jsp -text
 WebContent/acs.jsp -text
 WebContent/admin.jsp -text
+WebContent/admin_map_email.jsp -text
 WebContent/admin_match_domain.jsp -text
 WebContent/admin_match_incommon.jsp -text
 WebContent/attrs.jsp -text
@@ -51,6 +52,7 @@ WebContent/roster.jsp -text
 WebContent/session.jsp -text
 WebContent/sls.jsp -text
 WebContent/submit_binding.jsp -text
+WebContent/submit_domain_mapping.jsp -text
 WebContent/submit_enclave.jsp -text
 WebContent/submit_membership.jsp -text
 WebContent/submit_registration.jsp -text
