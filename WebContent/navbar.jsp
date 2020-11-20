@@ -21,6 +21,7 @@
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"	aria-haspopup="true" aria-expanded="false">User Admin</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="admin.jsp">Overall Status</a>
+						<a class="dropdown-item" href="user_roster.jsp">User Roster</a>
 						<a class="dropdown-item" href="user_pending.jsp">Users Pending</a>
 						<a class="dropdown-item" href="user_scan.jsp">User Scan</a>
 						<a class="dropdown-item" href="admin_map_email.jsp">Account Mapping</a>
