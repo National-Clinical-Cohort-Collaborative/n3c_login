@@ -52,24 +52,18 @@
 	
 	<div class="container center-box shadow-border">
 		<h2 class="header-text">
-			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C Registration Admin Match to InCommon
+			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C User Scan
 		</h2>
 		
-        <form name="incommon" method='POST' action='admin_map_email.jsp' >
+        <form name="incommon" method='POST' action='user_scan.jsp' >
+            <input type="radio" id="column" name="column" value="email" > <label for="email">Email</label>&nbsp;&nbsp;&nbsp;
+            <input type="radio" id="column" name="column" value="last_name" > <label for="last_name">Last Name</label><br>
             <c:set var="ror_pattern" value="${param.ror_pattern}"/>
-            <c:if test="${empty ror_pattern}">
-                <c:set var="ror_pattern" value="${param.institution}"/>
-            </c:if>
             <div class="form-group row">
-                <label for="email_pattern" class="required col-sm-2 col-form-label">Email pattern</label>
+                <label for="pattern" class="required col-sm-2 col-form-label">Pattern</label>
                 <style>.required:after { content:" *"; color: red; } </style>
                 <div class="col-sm-10">
-                    <input name="email_pattern" type="text" size="20" class="form-control" id="email_pattern" value="${param.email_pattern}">
-                </div>
-                <label for="org_pattern" class="required col-sm-2 col-form-label">Org pattern</label>
-                <style>.required:after { content:" *"; color: red; } </style>
-                <div class="col-sm-10">
-                    <input name="org_pattern" type="text" size="20" class="form-control" id="org_pattern" value="${param.org_pattern}">
+                    <input name="pattern" type="text" size="20" class="form-control" id="pattern" value="${param.pattern}">
                 </div>
             </div>
             <div style="text-align:left;">
@@ -77,38 +71,39 @@
             </div>
             <input type="hidden" name="institution" value="${param.institution}">
         </form>
-        <c:if test="${not empty param.email_pattern }">
-	 		<h3>Candidate mappings</h3>
+        <c:if test="${not empty param.pattern }">
+	 		<h3>palantir.n3c_user</h3>
 		    <sql:query var="categories" dataSource="jdbc/N3CLoginTagLib">
-		        select email,first_name,last_name,institution,institutionid,institutionname
-		        from n3c_admin.registration, n3c_admin.dua_master
-		        where email ~ ? and institutionname ~ ? and official_institution='';
-		        <sql:param>${param.email_pattern}</sql:param>
-		        <sql:param>${param.org_pattern}</sql:param>
+		        select email,first_name,last_name,ror_id,ror_name,una_path,created
+		        from palantir.n3c_user
+		        where ${param.column} ~ ? order by created desc;
+		        <sql:param>${param.pattern}</sql:param>
 		    </sql:query>
 		    <table class="table table-hover">
-		    <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Institution</th><th>Institution ID</th><th>Institution Name</th></tr></thead>
+		    <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>ROR ID</th><th>ROR Name</th><th>UNA Path</th><th>Created</th></tr></thead>
 		    <tbody>
 		    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
-		        <tr><td><a href="submit_domain_mapping.jsp?email=${row.email}&ror=${row.institutionid}">${row.email}</a></td><td>${row.first_name}</td><td>${row.last_name}</td><td>${row.institution}</td><td>${row.institutionid}</td><td>${row.institutionname}</td></tr>
+		        <tr><td>${row.email}</td><td>${row.first_name}</td><td>${row.last_name}</td><td>${row.ror_id}</td><td>${row.ror_name}</td><td>${row.una_path}</td><td>${row.created}</td></tr>
+		    </c:forEach>
+		    </tbody>
+		    </table>
+
+	 		<h3>n3c_admin.registration</h3>
+		    <sql:query var="registration" dataSource="jdbc/N3CLoginTagLib">
+		        select email,first_name,last_name,institution,official_full_name,official_institution,created
+		        from n3c_admin.registration
+		        where ${param.column} ~ ? order by created desc;
+		        <sql:param>${param.pattern}</sql:param>
+		    </sql:query>
+		    <table class="table table-hover">
+		    <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Institution</th><th>Official Full Name</th><th>Official Institution</th><th>Created</th></tr></thead>
+		    <tbody>
+		    <c:forEach items="${registration.rows}" var="row" varStatus="rowCounter">
+		        <tr><td>${row.email}</td><td>${row.first_name}</td><td>${row.last_name}</td><td>${row.institution}</td><td>${row.official_full_name}</td><td>${row.official_institution}</td><td>${row.created}</td></tr>
 		    </c:forEach>
 		    </tbody>
 		    </table>
         </c:if>
-		<h3>Unbound registrations</h3>
-	    <sql:query var="categories" dataSource="jdbc/N3CLoginTagLib">
-	        select email,first_name,last_name,institution,official_full_name
-	        from n3c_admin.registration
-	        where enclave and official_institution='' and email not in (select email from palantir.n3c_user) order by 4;
-	    </sql:query>
-	    <table class="table table-hover">
-	    <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Institution</th></tr></thead>
-	    <tbody>
-	    <c:forEach items="${categories.rows}" var="row" varStatus="rowCounter">
-	        <tr><td>${row.email}</td><td>${row.first_name}</td><td>${row.last_name}</td><td>${row.institution}</td></tr>
-	    </c:forEach>
-	    </tbody>
-	    </table>
 	</div>
 	<jsp:include page="footer.jsp" flush="true" />
 </body>

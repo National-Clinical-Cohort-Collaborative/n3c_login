@@ -56,4 +56,9 @@ WebContent/submit_domain_mapping.jsp -text
 WebContent/submit_enclave.jsp -text
 WebContent/submit_membership.jsp -text
 WebContent/submit_registration.jsp -text
+WebContent/user_pending.jsp -text
+WebContent/user_pending_feed.jsp -text
+WebContent/user_roster.jsp -text
+WebContent/user_roster_feed.jsp -text
+WebContent/user_scan.jsp -text
 /pom.xml -text
