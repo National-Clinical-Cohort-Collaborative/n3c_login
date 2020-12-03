@@ -35,4 +35,8 @@ for "<b>First Time Users</b>."  On the Registration form, select the option for 
 The National COVID Cohort Collaborative (N3C)</p>
 				</mail:htmlBody>
 			</mail:message>
+			<sql:update dataSource="jdbc/N3CLoginTagLib">
+				insert into n3c_admin.analytics_sent values(?);
+				<sql:param>${row.email_address}</sql:param>
+			</sql:update>
 	</c:forEach>
