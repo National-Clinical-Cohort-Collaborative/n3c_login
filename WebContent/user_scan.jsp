@@ -56,8 +56,8 @@
 		</h2>
 		
         <form name="incommon" method='POST' action='user_scan.jsp' >
-            <input type="radio" id="column" name="column" value="email" > <label for="email">Email</label>&nbsp;&nbsp;&nbsp;
-            <input type="radio" id="column" name="column" value="last_name" > <label for="last_name">Last Name</label><br>
+            <input type="radio" id="column" name="column" value="email" <c:if test="${param.column=='email'}">checked</c:if> > <label for="email">Email</label>&nbsp;&nbsp;&nbsp;
+            <input type="radio" id="column" name="column" value="last_name" <c:if test="${empty param.column or param.column=='last_name'}">checked</c:if> > <label for="last_name">Last Name</label><br>
             <c:set var="ror_pattern" value="${param.ror_pattern}"/>
             <div class="form-group row">
                 <label for="pattern" class="required col-sm-2 col-form-label">Pattern</label>

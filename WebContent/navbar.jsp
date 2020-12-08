@@ -25,6 +25,7 @@
 						<a class="dropdown-item" href="user_pending.jsp">Users Pending</a>
 						<a class="dropdown-item" href="user_scan.jsp">User Scan</a>
 						<a class="dropdown-item" href="admin_map_email.jsp">Account Mapping</a>
+						<a class="dropdown-item" href="admin_delete.jsp">User Deletion</a>
 					</div>
 				</li>
 			</c:if>
