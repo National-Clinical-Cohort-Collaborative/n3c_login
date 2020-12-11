@@ -21,6 +21,7 @@ WebContent/admin_match_domain.jsp -text
 WebContent/admin_match_incommon.jsp -text
 WebContent/attrs.jsp -text
 WebContent/autocomplete_test.jsp -text
+WebContent/award_map.jsp -text
 WebContent/dashboard.jsp -text
 WebContent/dologin.jsp -text
 WebContent/dologout.jsp -text
@@ -52,6 +53,8 @@ WebContent/resources/n3c_login_style.css -text
 WebContent/roster.jsp -text
 WebContent/session.jsp -text
 WebContent/sls.jsp -text
+WebContent/submit_award_mapping.jsp -text
+WebContent/submit_award_suppress.jsp -text
 WebContent/submit_binding.jsp -text
 WebContent/submit_deletion.jsp -text
 WebContent/submit_domain_mapping.jsp -text
