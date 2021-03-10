@@ -41,7 +41,7 @@
 			
 			<p style="font-size:15px; font-style:italic; margin-bottom:30px; color:#6d6d6d; display:none;">Applications for membership will be reviewed/approved rapidly during the week, but may extend up to 48 hours over weekends. Your patience and understanding is appreciated.</p>
 			
-			<p>Contact <a href="mailto:data2health@gmail.com">data2health@gmail.com</a> with any questions.</p>
+			<p>Please submit a <a href="https://n3c-help.atlassian.net/servicedesk/customer/portal/2">support desk ticket</a> with any questions.</p>
 			<div style="display:none;">
 				<a href="dologin.jsp?attrs=1" class="btn btn-n3c">NCATS UNA demo login</a> This is here for the moment to support login debugging.
 			</div>
