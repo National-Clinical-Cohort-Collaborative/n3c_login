@@ -90,16 +90,16 @@
 
 	 		<h3>n3c_admin.registration</h3>
 		    <sql:query var="registration" dataSource="jdbc/N3CLoginTagLib">
-		        select email,first_name,last_name,institution,official_full_name,official_institution,created
+		        select email,first_name,last_name,institution,official_full_name,official_institution,created,enclave
 		        from n3c_admin.registration
 		        where ${param.column} ~ ? order by created desc;
 		        <sql:param>${param.pattern}</sql:param>
 		    </sql:query>
 		    <table class="table table-hover">
-		    <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Institution</th><th>Official Full Name</th><th>Official Institution</th><th>Created</th></tr></thead>
+		    <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Institution</th><th>Official Full Name</th><th>Official Institution</th><th>Created</th><th>Enclave</th></tr></thead>
 		    <tbody>
 		    <c:forEach items="${registration.rows}" var="row" varStatus="rowCounter">
-		        <tr><td>${row.email}</td><td>${row.first_name}</td><td>${row.last_name}</td><td>${row.institution}</td><td>${row.official_full_name}</td><td>${row.official_institution}</td><td>${row.created}</td></tr>
+		        <tr><td>${row.email}</td><td>${row.first_name}</td><td>${row.last_name}</td><td>${row.institution}</td><td>${row.official_full_name}</td><td>${row.official_institution}</td><td>${row.created}</td><td>${row.enclave}</td></tr>
 		    </c:forEach>
 		    </tbody>
 		    </table>
