@@ -60,6 +60,7 @@ WebContent/submit_award_suppress.jsp -text
 WebContent/submit_binding.jsp -text
 WebContent/submit_deletion.jsp -text
 WebContent/submit_domain_mapping.jsp -text
+WebContent/submit_domain_remap.jsp -text
 WebContent/submit_enclave.jsp -text
 WebContent/submit_link.jsp -text
 WebContent/submit_membership.jsp -text

@@ -24,6 +24,7 @@
 						<a class="dropdown-item" href="user_roster.jsp">User Roster</a>
 						<a class="dropdown-item" href="user_pending.jsp">Users Pending</a>
 						<a class="dropdown-item" href="user_scan.jsp">User Scan</a>
+						<a class="dropdown-item" href="domain_remap.jsp">Domain Remap</a>
 						<a class="dropdown-item" href="admin_map_email.jsp">Account Mapping</a>
 						<a class="dropdown-item" href="admin_delete.jsp">User Deletion</a>
 					</div>
