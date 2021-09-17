@@ -43,6 +43,7 @@
         <n3c:registrationOfficialInstitution officialInstitution="${institution}"/>
         <n3c:registrationCreatedToNow/>
         <n3c:registrationUpdatedToNow/>
+		<n3c:registrationEnclave enclave="${true}" />
     </n3c:registration>
     
     <c:redirect url="register.jsp"/>
