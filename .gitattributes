@@ -25,6 +25,7 @@ WebContent/award_map.jsp -text
 WebContent/dashboard.jsp -text
 WebContent/dologin.jsp -text
 WebContent/dologout.jsp -text
+WebContent/domain_remap.jsp -text
 WebContent/email/citizen_pending.jsp -text
 WebContent/email/dua_pending.jsp -text
 WebContent/email/in_process.jsp -text
