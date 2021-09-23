@@ -62,7 +62,9 @@
 	        where enclave
 	          and not exists (select orcid_id from palantir.n3c_user as bar where foo.orcid_id = bar.orcid_id)
 	          and official_institution not in ('NIH','login.gov')
-	          and substring(email from '.*@(.*)') = substring(duacontactemail from '.*@(.*)')
+	          and (substring(email from '.*@(.*)') = substring(duacontactemail from '.*@(.*)')
+	          		or
+	          		substring(email from '.*@(.*)') = substring(signatoryemail from '.*@(.*)'))
 	          and substring(email from '.*@(.*)') not in ('gmail.com','yahoo.com')
 	        group by 1,2,4,5 order by 3 desc;
 	    </sql:query>

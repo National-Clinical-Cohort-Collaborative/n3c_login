@@ -15,6 +15,9 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="N3CLoginTagLib-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/N3CLoginTagLib/N3CLoginTagLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
                                 
         
         
