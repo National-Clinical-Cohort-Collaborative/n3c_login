@@ -31,18 +31,18 @@
 				<n3c:project uid="${param.uid}">
 					<h4><n3c:projectTitle /></h4>
 					<p><n3c:projectResearchStatement /></p>
-                   <input style="width:16px; height:16px;" type="checkbox" id="domain" name="domain" value="true" <c:if test="${n3c:projectDomainTeamValue()}">checked</c:if> > <label for="domain" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">This is a domain team project.</label><br>
+                   <input style="width:16px; height:16px;" type="checkbox" id="domain" name="domain" value="true" <c:if test="${tag_project.getDomainTeam()}">checked</c:if> > <label for="domain" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">This is a domain team project.</label><br>
 					<label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Associate this project with the following domain teams:</label><br>
 					<div class="col-sm-10">
 						<n3c:foreachDomainTeam var="y" sortCriteria="title">
 							<n3c:domainTeam>
-			                        <input type="checkbox" id="${n3c:domainTeamNidValue()}" name="team" value="${n3c:domainTeamNidValue()}" class="form-check-input" <c:if test="${n3c:bindingExists(n3c:registrationEmailValue(),n3c:projectUidValue(),n3c:domainTeamNidValue()+'')}">checked</c:if>>
-			                        <label class="form-check-label" for="${n3c:domainTeamNidValue()}"><a href="https://covid.cd2h.org/node/<n3c:domainTeamNid/>"><n3c:domainTeamTitle /></a></label><br>
+			                        <input type="checkbox" id="${tag_domainTeam.getNid()}" name="team" value="${tag_domainTeam.getNid()}" class="form-check-input" <c:if test="${n3c:bindingExists(tag_registration.getEmail(),tag_project.getUid(),tag_domainTeam.getNid()+'')}">checked</c:if>>
+			                        <label class="form-check-label" for="${tag_domainTeam.getNid()}"><a href="https://covid.cd2h.org/node/<n3c:domainTeamNid/>"><n3c:domainTeamTitle /></a></label><br>
 							</n3c:domainTeam>
 						</n3c:foreachDomainTeam>
 					</div>
-					<input type="hidden" name="email" value="${n3c:projectEmailValue()}">
-					<input type="hidden" name="uid" value="${n3c:projectUidValue()}">
+					<input type="hidden" name="email" value="${tag_project.getEmail()}">
+					<input type="hidden" name="uid" value="${tag_project.getUid()}">
 				</n3c:project>
 			<br>
             <div style="text-align:left;">

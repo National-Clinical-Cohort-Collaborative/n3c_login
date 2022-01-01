@@ -39,8 +39,8 @@
             <n3c:foreachWorkstream var="x">
                 <n3c:workstream>
                 	<div class="form-check mb-4">
-   						<input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input">
-    					<label class="form-check-label" for="${n3c:workstreamLabelValue()}"><strong class="accent-text" style="font-size:18px;"><n3c:workstreamFullName/> </strong> - <n3c:workstreamDescription/></label>
+   						<input type="checkbox" id="${tag_workstream.getLabel()}" name="${tag_workstream.getLabel()}" value="${tag_workstream.getLabel()}" class="form-check-input">
+    					<label class="form-check-label" for="${tag_workstream.getLabel()}"><strong class="accent-text" style="font-size:18px;"><n3c:workstreamFullName/> </strong> - <n3c:workstreamDescription/></label>
   					</div>
                 </n3c:workstream>
             </n3c:foreachWorkstream>

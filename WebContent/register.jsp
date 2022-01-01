@@ -38,20 +38,20 @@
     			<label for="first_name" class="required col-sm-2 col-form-label">First Name</label>
                 <style>.required:after { content:" *"; color: red; } </style>
     			<div class="col-sm-10">
-      				<input name="first_name" type="text" class="form-control" id="first_name" value="${n3c:registrationFirstNameValue()}">
+      				<input name="first_name" type="text" class="form-control" id="first_name" value="${tag_registration.getFirstName()}">
     			</div>
   			</div>
   			<div class="form-group row">
     			<label for="last_name" class="required col-sm-2 col-form-label">Last Name</label>
     			<div class="col-sm-10">
-      				<input name="last_name" type="text" class="form-control" id="last_name" value="${n3c:registrationLastNameValue()}">
+      				<input name="last_name" type="text" class="form-control" id="last_name" value="${tag_registration.getLastName()}">
     			</div>
   			</div>
   			<div class="form-group row">
     			<label for="institution" class="required col-sm-2 col-form-label">Institution</label>
     			<div class="col-sm-10">
-      				<input name="institution" type="text" class="form-control" id="institution" value="${n3c:registrationInstitutionValue()}">
-      				<c:if test="${n3c:registrationOfficialInstitutionValue() != 'login.gov' && n3c:registrationOfficialInstitutionValue() != 'NIH' }">
+      				<input name="institution" type="text" class="form-control" id="institution" value="${tag_registration.getInstitution()}">
+      				<c:if test="${tag_registration.getOfficialInstitution() != 'login.gov' && tag_registration.getOfficialInstitution() != 'NIH' }">
 		                <sql:query var="rors" dataSource="jdbc/N3CLoginTagLib">
 		                    select institutionid,duaexecuted from n3c_admin.dua_status where official_institution = ?
 		                    <sql:param><n3c:registrationOfficialInstitution/></sql:param>
@@ -80,15 +80,15 @@
   			</div>
 
 
-           <input style="width:16px; height:16px;" type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${n3c:registrationEnclaveValue()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Access to the N3C Enclave <span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to request an N3C Data Enclave account</span></label><br>
+           <input style="width:16px; height:16px;" type="checkbox" id="enclave" name="enclave" value="enclave" onclick="enclaveFunction()" <c:if test="${tag_registration.getEnclave()}">checked</c:if> > <label for="enclave" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px; margin-top:30px;">Access to the N3C Enclave <span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to request an N3C Data Enclave account</span></label><br>
             
-            <div id="enclave-div" style="display:<c:choose><c:when test="${n3c:registrationEnclaveValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
+            <div id="enclave-div" style="display:<c:choose><c:when test="${tag_registration.getEnclave()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
                 <p style="font-style:italic;">Your request for an N3C Data Enclave account will be submitted for approval. You will receive an email containing further instructions and information on accessing the N3C Data Enclave shortly.</p>
                 <p>Please provide these additional details to enhance your ability to collaborate and be credited for contributions:</p>
             <div class="form-group row">
                 <label for="orcid" class=" required col-sm-2 col-form-label">ORCiD ID</label>
                 <div class="col-sm-10">
-                    <input name="orcid" type="text" class="form-control" id="orcid" value="${n3c:registrationOrcidIdValue()}">
+                    <input name="orcid" type="text" class="form-control" id="orcid" value="${tag_registration.getOrcidId()}">
 	                <sql:query var="orcids" dataSource="jdbc/N3CLoginTagLib">
 	                    select distinct person.orcid_id,given_names,family_name,organization
 	                    from orcid.person left join orcid.employment on person.id=employment.id
@@ -108,24 +108,24 @@
             <div class="form-group row">
                 <label for="expertise" class="col-sm-2 col-form-label">Expertise</label>
                 <div class="col-sm-10">
-                    <input name="expertise" type="text" class="form-control" id="expertise" value="${n3c:registrationExpertiseValue()}">
+                    <input name="expertise" type="text" class="form-control" id="expertise" value="${tag_registration.getExpertise()}">
                 </div>
             </div>
             <div class="form-group row" style="margin-bottom:65px;">
                 <label for="therapeutic" class="col-sm-2 col-form-label">Therapeutic Area (for clinicians)</label>
                 <div class="col-sm-10">
-                    <input name="therapeutic" type="text" class="form-control" id="therapeutic" value="${n3c:registrationTherapeuticAreaValue()}">
+                    <input name="therapeutic" type="text" class="form-control" id="therapeutic" value="${tag_registration.getTherapeuticArea()}">
                 </div>
             </div>
             </div>
 
-           <input style="width:16px; height:16px;" type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${n3c:registrationWorkstreamsValue()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px;">Participate in N3C Workstreams<span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to contribute to the work being done by N3C</span></label><br>
+           <input style="width:16px; height:16px;" type="checkbox" id="workstreams" name="workstreams" value="workstreams" onclick="workstreamFunction()" <c:if test="${tag_registration.getWorkstreams()}">checked</c:if>> <label for="workstream" class="accent-text" style="font-size:20px; font-weight:500; padding-left:10px;">Participate in N3C Workstreams<span style="font-size: 1rem; font-weight:300; color:#333;"> — Check this box to contribute to the work being done by N3C</span></label><br>
 
-				<div id="workstream-div" style="display: <c:choose><c:when test="${n3c:registrationWorkstreamsValue()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
+				<div id="workstream-div" style="display: <c:choose><c:when test="${tag_registration.getWorkstreams()}">block</c:when><c:otherwise>none</c:otherwise></c:choose>;">
 					<div class="form-group row">
 						<label for="gsuite" class="col-sm-2 col-form-label">GSuite (GMail) ID</label>
 						<div class="col-sm-10">
-							<input name="gsuite" type="text" class="form-control" id="gsuite" value="${n3c:registrationGsuiteEmailValue()}">
+							<input name="gsuite" type="text" class="form-control" id="gsuite" value="${tag_registration.getGsuiteEmail()}">
 							<p class="supplemental-question-info">We use Google Drive, Docs, and Sheets to share information. <strong class="accent-text">PLEASE ENTER THE ADDRESS YOU WILL USE TO ACCESS GOOGLE DRIVE.</strong>
 							If you do NOT have any address with which you currently can use Google Drive, Docs, or Sheets, NCATS is able to provide one for you.
 							If this is you, please contact <a href="mailto:mariam.deacy@nih.gov" target="_blank">mariam.deacy@nih.gov</a>.</p>
@@ -134,14 +134,14 @@
 					<div class="form-group row">
 						<label for="slack" class="col-sm-2 col-form-label">Slack Email</label>
 						<div class="col-sm-10">
-							<input name="slack" type="text" class="form-control" id="slack"	value="${n3c:registrationSlackIdValue()}">
+							<input name="slack" type="text" class="form-control" id="slack"	value="${tag_registration.getSlackId()}">
 							<p class="supplemental-question-info">We use Slack to communicate and invite all who onboard to join our <a href="https://join.slack.com/t/cd2h/signup" target="_blank">Slack org</a>.</p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="github" class="col-sm-2 col-form-label">GitHub ID</label>
 						<div class="col-sm-10">
-							<input name="github" type="text" class="form-control" id="github" value="${n3c:registrationGithubIdValue()}">
+							<input name="github" type="text" class="form-control" id="github" value="${tag_registration.getGithubId()}">
 							<p class="supplemental-question-info">We use Github for issue tracking and management. You can create a free profile and generate a handle at <a href="http://github.com" target="_blank">GitHub.com</a> if you do not already have one.
 							You will be able to view issues without a handle; however, you will not be able to log issues without one.</p>
 						</div>
@@ -149,13 +149,13 @@
 					<div class="form-group row">
 						<label for="twitter" class="col-sm-2 col-form-label">Twitter ID</label>
 						<div class="col-sm-10">
-							<input name="twitter" type="text" class="form-control"	id="twitter" value="${n3c:registrationTwitterIdValue()}">
+							<input name="twitter" type="text" class="form-control"	id="twitter" value="${tag_registration.getTwitterId()}">
 						</div>
 					</div>
 		            <div class="form-group row">
 		                <label for="assistant" class="col-sm-2 col-form-label">Assistant's Email</label>
 		                <div class="col-sm-10">
-		                    <input name="assistant" type="text" class="form-control" id="assistant" value="${n3c:registrationAssistantEmailValue()}">
+		                    <input name="assistant" type="text" class="form-control" id="assistant" value="${tag_registration.getAssistantEmail()}">
 		                    <p class="supplemental-question-info">If you have an assistant that you would like copied in correspondence about meeting schedules, please provide their contact email.</p>
 		                </div>
 		            </div>
@@ -164,19 +164,19 @@
 			            <n3c:foreachWorkstream var="x">
 			                <n3c:workstream>
 			                    <div class="form-check mb-4">
-			                    	<c:set var='workstream' value="${n3c:workstreamLabelValue()}"/>
-			                        <input type="checkbox" id="${n3c:workstreamLabelValue()}" name="${n3c:workstreamLabelValue()}" value="${n3c:workstreamLabelValue()}" class="form-check-input" <c:if test="${n3c:membershipExists(user_email,workstream)}">checked</c:if>>
-			                        <label class="form-check-label" for="${n3c:workstreamLabelValue()}"><strong class="accent-text_2" style="font-size:16px;"><n3c:workstreamFullName/> </strong> - <span style="font-weight:300; font-size:16px"><n3c:workstreamDescription/></span></label>
+			                    	<c:set var='workstream' value="${tag_workstream.getLabel()}"/>
+			                        <input type="checkbox" id="${tag_workstream.getLabel()}" name="${tag_workstream.getLabel()}" ="${tag_workstream.getLabel()}" class="form-check-input" <c:if test="${n3c:membershipExists(user_email,workstream)}">checked</c:if>>
+			                        <label class="form-check-label" for="${tag_workstream.getLabel()}"><strong class="accent-text_2" style="font-size:16px;"><n3c:workstreamFullName/> </strong> - <span style="font-weight:300; font-size:16px"><n3c:workstreamDescription/></span></label>
 			                    </div>
 			                </n3c:workstream>
 			            </n3c:foreachWorkstream>
 		            </div>
 				</div>
 
-				<input type="hidden" name="official_first_name" value="${n3c:registrationOfficialFirstNameValue()}">
-                <input type="hidden" name="official_last_name" value="${n3c:registrationOfficialLastNameValue()}">
-                <input type="hidden" name="official_full_name" value="${n3c:registrationOfficialFullNameValue()}">
-                <input type="hidden" name="official_institution" value="${n3c:registrationOfficialInstitutionValue()}">
+				<input type="hidden" name="official_first_name" value="${tag_registration.getOfficialFirstName()}">
+                <input type="hidden" name="official_last_name" value="${tag_registration.getOfficialLastName()}">
+                <input type="hidden" name="official_full_name" value="${tag_registration.getOfficialFullName()}">
+                <input type="hidden" name="official_institution" value="${tag_registration.getOfficialInstitution()}">
             
             <div style="text-align:right;">
             	<button class="btn btn-n3c" type="submit" name="action" value="submit">Submit</button>
